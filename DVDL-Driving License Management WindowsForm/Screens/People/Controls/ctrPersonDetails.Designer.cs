@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -56,9 +58,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -67,13 +68,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.linkLabel1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.pbPersonImage);
             this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.pictureBox6);
@@ -103,16 +103,40 @@
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(899, 358);
+            this.groupBox1.Size = new System.Drawing.Size(1018, 371);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Person Information";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.linkLabel1.LinkColor = System.Drawing.Color.DarkBlue;
+            this.linkLabel1.Location = new System.Drawing.Point(814, 58);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(128, 21);
+            this.linkLabel1.TabIndex = 47;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Edit Person Info";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPersonImage.Location = new System.Drawing.Point(788, 95);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(186, 224);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersonImage.TabIndex = 46;
+            this.pbPersonImage.TabStop = false;
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Country;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox7.Location = new System.Drawing.Point(512, 242);
+            this.pictureBox7.Location = new System.Drawing.Point(565, 251);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(38, 33);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +147,7 @@
             // 
             this.pictureBox5.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.phone_call;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(514, 187);
+            this.pictureBox5.Location = new System.Drawing.Point(565, 187);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(38, 33);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,7 +158,7 @@
             // 
             this.pictureBox6.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.calendar;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(514, 141);
+            this.pictureBox6.Location = new System.Drawing.Point(565, 132);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(38, 33);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +169,7 @@
             // 
             this.pictureBox9.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.address;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(141, 294);
+            this.pictureBox9.Location = new System.Drawing.Point(141, 312);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(38, 33);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -156,7 +180,7 @@
             // 
             this.pictureBox8.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.email;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox8.Location = new System.Drawing.Point(141, 242);
+            this.pictureBox8.Location = new System.Drawing.Point(141, 251);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(38, 33);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -197,7 +221,7 @@
             // lblCountry
             // 
             this.lblCountry.AutoSize = true;
-            this.lblCountry.Location = new System.Drawing.Point(556, 251);
+            this.lblCountry.Location = new System.Drawing.Point(609, 251);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(28, 24);
             this.lblCountry.TabIndex = 17;
@@ -206,7 +230,7 @@
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(556, 192);
+            this.lblPhone.Location = new System.Drawing.Point(607, 192);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(28, 24);
             this.lblPhone.TabIndex = 16;
@@ -215,7 +239,7 @@
             // lblBirthOfDate
             // 
             this.lblBirthOfDate.AutoSize = true;
-            this.lblBirthOfDate.Location = new System.Drawing.Point(558, 150);
+            this.lblBirthOfDate.Location = new System.Drawing.Point(609, 141);
             this.lblBirthOfDate.Name = "lblBirthOfDate";
             this.lblBirthOfDate.Size = new System.Drawing.Size(28, 24);
             this.lblBirthOfDate.TabIndex = 15;
@@ -224,7 +248,7 @@
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(185, 301);
+            this.lblAddress.Location = new System.Drawing.Point(185, 319);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(28, 24);
             this.lblAddress.TabIndex = 14;
@@ -233,7 +257,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(185, 254);
+            this.lblEmail.Location = new System.Drawing.Point(185, 260);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(28, 24);
             this.lblEmail.TabIndex = 13;
@@ -260,6 +284,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.ForeColor = System.Drawing.Color.Salmon;
             this.lblName.Location = new System.Drawing.Point(185, 95);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(28, 24);
@@ -278,7 +303,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(416, 242);
+            this.label9.Location = new System.Drawing.Point(469, 251);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 24);
             this.label9.TabIndex = 8;
@@ -287,7 +312,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(430, 191);
+            this.label8.Location = new System.Drawing.Point(481, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 24);
             this.label8.TabIndex = 7;
@@ -296,7 +321,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(368, 141);
+            this.label7.Location = new System.Drawing.Point(419, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(140, 24);
             this.label7.TabIndex = 6;
@@ -305,7 +330,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 294);
+            this.label6.Location = new System.Drawing.Point(6, 312);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 24);
             this.label6.TabIndex = 5;
@@ -314,7 +339,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 242);
+            this.label5.Location = new System.Drawing.Point(6, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 24);
             this.label5.TabIndex = 4;
@@ -356,26 +381,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Person ID :";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(686, 77);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(186, 224);
-            this.pictureBox1.TabIndex = 46;
-            this.pictureBox1.TabStop = false;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.DarkBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(712, 40);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(128, 21);
-            this.linkLabel1.TabIndex = 47;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Edit Person Info";
-            // 
             // ctrPersonDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -383,10 +388,10 @@
             this.BackColor = System.Drawing.Color.DarkSlateGray;
             this.Controls.Add(this.groupBox1);
             this.Name = "ctrPersonDetails";
-            this.Size = new System.Drawing.Size(915, 361);
-            this.Load += new System.EventHandler(this.ctrPersonDetails_Load);
+            this.Size = new System.Drawing.Size(1031, 377);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -395,7 +400,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -430,7 +434,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbPersonImage;
         private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

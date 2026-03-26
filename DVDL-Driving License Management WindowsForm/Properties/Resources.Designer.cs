@@ -133,6 +133,16 @@ namespace DVDL_Driving_License_Management_WindowsForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Female {
+            get {
+                object obj = ResourceManager.GetObject("Female", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file {
             get {
                 object obj = ResourceManager.GetObject("file", resourceCulture);
@@ -173,6 +183,16 @@ namespace DVDL_Driving_License_Management_WindowsForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Male {
+            get {
+                object obj = ResourceManager.GetObject("Male", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PeopleButton {
             get {
                 object obj = ResourceManager.GetObject("PeopleButton", resourceCulture);
@@ -203,26 +223,6 @@ namespace DVDL_Driving_License_Management_WindowsForm.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap question {
-            get {
-                object obj = ResourceManager.GetObject("question", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap questionPerson {
-            get {
-                object obj = ResourceManager.GetObject("questionPerson", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap remove_user {
             get {
                 object obj = ResourceManager.GetObject("remove-user", resourceCulture);
@@ -246,6 +246,16 @@ namespace DVDL_Driving_License_Management_WindowsForm.Properties {
         internal static System.Drawing.Bitmap save1 {
             get {
                 object obj = ResourceManager.GetObject("save1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_Pesron {
+            get {
+                object obj = ResourceManager.GetObject("search Pesron", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

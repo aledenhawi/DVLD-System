@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs">
+    <Compile Include="Screens\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="Screens\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -60,69 +60,69 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmAddPerson.cs">
+    <Compile Include="Screens\People\frmAddUpdatePerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmAddPerson.Designer.cs">
-      <DependentUpon>frmAddPerson.cs</DependentUpon>
+    <Compile Include="Screens\People\frmAddUpdatePerson.Designer.cs">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmEditPerson.cs">
+    <Compile Include="Screens\People\frmFindPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmEditPerson.Designer.cs">
-      <DependentUpon>frmEditPerson.cs</DependentUpon>
+    <Compile Include="Screens\People\frmFindPerson.Designer.cs">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmPeople.cs">
+    <Compile Include="Screens\People\frmManagePeople.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmPeople.Designer.cs">
-      <DependentUpon>frmPeople.cs</DependentUpon>
+    <Compile Include="Screens\People\frmManagePeople.Designer.cs">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Screens\PeopleScreens\frmPersonDetails.cs">
+    <Compile Include="Screens\People\frmPersonDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Screens\PeopleScreens\frmPersonDetails.Designer.cs">
+    <Compile Include="Screens\People\frmPersonDetails.Designer.cs">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\AddPerson.cs">
+    <Compile Include="Screens\People\Controls\ctrPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\AddPerson.Designer.cs">
-      <DependentUpon>AddPerson.cs</DependentUpon>
-    </Compile>
-    <Compile Include="User Controls\ctrPersonDetails.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User Controls\ctrPersonDetails.Designer.cs">
+    <Compile Include="Screens\People\Controls\ctrPersonDetails.Designer.cs">
       <DependentUpon>ctrPersonDetails.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmMain.resx">
+    <Compile Include="Screens\People\Controls\ctrPersonDetailsWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\People\Controls\ctrPersonDetailsWithFilter.Designer.cs">
+      <DependentUpon>ctrPersonDetailsWithFilter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Screens\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PeopleScreens\frmAddPerson.resx">
-      <DependentUpon>frmAddPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\People\frmAddUpdatePerson.resx">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PeopleScreens\frmEditPerson.resx">
-      <DependentUpon>frmEditPerson.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\People\frmFindPerson.resx">
+      <DependentUpon>frmFindPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PeopleScreens\frmPeople.resx">
-      <DependentUpon>frmPeople.cs</DependentUpon>
+    <EmbeddedResource Include="Screens\People\frmManagePeople.resx">
+      <DependentUpon>frmManagePeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Screens\PeopleScreens\frmPersonDetails.resx">
+    <EmbeddedResource Include="Screens\People\frmPersonDetails.resx">
       <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\AddPerson.resx">
-      <DependentUpon>AddPerson.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\ctrPersonDetails.resx">
+    <EmbeddedResource Include="Screens\People\Controls\ctrPersonDetails.resx">
       <DependentUpon>ctrPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\People\Controls\ctrPersonDetailsWithFilter.resx">
+      <DependentUpon>ctrPersonDetailsWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -149,6 +149,10 @@
       <Project>{4e5e7df6-a502-4b61-8a43-9fa1445d8b5d}</Project>
       <Name>DVLD-BusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DVLD_Classes\DVLD_Classes.csproj">
+      <Project>{9c10981a-ebd6-4071-8331-ef30db0ffb68}</Project>
+      <Name>DVLD_Classes</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Screenshot 2026-03-11 200118.png" />
@@ -161,9 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-newPerson.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\questionPerson.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\id-card.png" />
@@ -211,7 +212,16 @@
     <None Include="Resources\remove-user.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\question.png" />
+    <None Include="Resources\Female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search Pesron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="User Controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

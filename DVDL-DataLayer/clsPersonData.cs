@@ -36,20 +36,23 @@ namespace DVDL_DataAccessLayer
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
 
-            if (Email != "")
+            if (Email != "" && Email != null)
                 command.Parameters.AddWithValue("@Email", Email);
             else
                 command.Parameters.AddWithValue("@Email", DBNull.Value);
 
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
 
-            // Handle Image Path
-            AddImage(ImagePath, command);
 
-            if (ThirdName != "")
+            if (ThirdName != "" && ThirdName != null)
                 command.Parameters.AddWithValue("@ThirdName", ThirdName);
             else
                 command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+            if (ImagePath != "" && ImagePath != null)
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+
             /////////
             ///
 
@@ -66,7 +69,7 @@ namespace DVDL_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+               
             }
             finally
             {
@@ -76,7 +79,7 @@ namespace DVDL_DataAccessLayer
             return ContactID;
         }
 
-        public static bool FindPersonByID(int ID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref string NationalNo, ref string Email,
+        public static bool GetPersonInfoByID(int ID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref string NationalNo, ref string Email,
            ref string Phone, ref string Address, ref DateTime DateOfBirth, ref string ImagePath, ref int NationalityCountryID, ref byte Gender)
         {
             bool isFound = false;
@@ -105,6 +108,7 @@ namespace DVDL_DataAccessLayer
                     Address = Reader["Address"].ToString();
                     DateOfBirth = Convert.ToDateTime(Reader["DateOfBirth"]);
                     ImagePath = Reader["ImagePath"] != DBNull.Value ? Reader["ImagePath"].ToString() : "";
+                    Gender = Convert.ToByte(Reader["Gendor"]);
                     NationalityCountryID = Convert.ToInt32(Reader["NationalityCountryID"]);
                     isFound = true;
                 }
@@ -122,7 +126,7 @@ namespace DVDL_DataAccessLayer
             return isFound;
         }
 
-        public static bool FindPersonByNationalNo(ref int ID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, string NationalNo, ref string Email,
+        public static bool GetPersonInfoByNationalNo(ref int ID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, string NationalNo, ref string Email,
         ref string Phone, ref string Address, ref DateTime DateOfBirth, ref string ImagePath, ref int NationalityCountryID, ref byte Gender)
         {
             bool isFound = false;
@@ -218,16 +222,12 @@ namespace DVDL_DataAccessLayer
                 command.Parameters.AddWithValue("@Email", DBNull.Value);
 
             if (ImagePath != "")
-            {
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
-            }
             else
-                    command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-    
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
 
-
-              try
-              {
+            try
+            {
                   Connection.Open();
 
                   RowsAffected = command.ExecuteNonQuery();
@@ -244,152 +244,6 @@ namespace DVDL_DataAccessLayer
               return (RowsAffected > 0);
         }
         
-
-        public static void AddImage(string ImagePath, SqlCommand command)
-        {
-            try
-            {
-                if (ImagePath != "")
-                {
-
-
-                    string Sourse = Convert.ToString(ImagePath);
-                    string DestinationFolder = "C:\\DVLD-Images";
-                    if (!Directory.Exists(DestinationFolder))
-                    {
-                        Directory.CreateDirectory(DestinationFolder);
-                    }
-                    string extension = Path.GetExtension(Sourse);
-                    string DestinationPath = Path.Combine(DestinationFolder, $"{Guid.NewGuid()}{extension}");
-
-                    File.Copy(Sourse, DestinationPath);
-
-                    command.Parameters.AddWithValue("@ImagePath", DestinationPath);
-
-                }
-                else
-                    command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-            }
-            catch (Exception ex)
-            {
-                // Console.WriteLine(ex);
-            }
-
-        }
-
-        public static bool GetImagePath(int ID, out string Path)
-        {
-            Path = "";
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = @"Select ImagePath from People 
-                             Where PersonID = @ID;";
-            SqlCommand command = new SqlCommand(Query, Connection);
-
-            command.Parameters.AddWithValue("@ID", ID);
-
-            try
-            {
-                Connection.Open();
-                object result = command.ExecuteScalar();
-                if (result != null)
-                {
-                    Path = result.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
-            return (Path != "");
-
-        }
-
-        public static bool RemoveImage(int ID)
-        {
-            int RowsAffected = 0;
-
-            if (GetImagePath(ID, out string OldImagePath))
-            {
-                // Delete the old image file from the file system
-
-                try
-                {
-                    File.Delete(OldImagePath);
-                }
-                catch (Exception ex)
-                {
-                    // Console.WriteLine(ex);
-                }
-
-                // Delete the image path from the database
-
-                SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-                string Query = @"UPDATE People
-                                     set ImagePath = NULL
-                                     where PersonID = @ID;";
-
-
-                SqlCommand command = new SqlCommand(Query, Connection);
-
-                command.Parameters.AddWithValue("@ID", ID);
-
-                try
-                {
-                    Connection.Open();
-
-                    RowsAffected = command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-
-                }
-                finally
-                {
-                    Connection.Close();
-                }
-
-            }
-            return (RowsAffected > 0);
-        }
-
-        public static void SetImage(int ID, string ImagePath)
-        {
-            RemoveImage(ID);
-
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = @"Update People 
-                             set ImagePath = @ImagePath
-                             Where PersonID = @ID;";
-            SqlCommand command = new SqlCommand(Query, Connection);
-
-            command.Parameters.AddWithValue("@ID", ID);
-
-            // Change the image path and move the file to the new location
-            AddImage(ImagePath, command);
-
-
-            try
-            {
-                Connection.Open();
-                command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                // Console.WriteLine(ex);
-            }
-            finally
-            {
-                Connection.Close();
-            }
-        }
-
         public static bool DeletePerson(int ID)
         {
             int RowsAffected = 0;
@@ -397,7 +251,6 @@ namespace DVDL_DataAccessLayer
             string Query = @"DELETE FROM People 
                      WHERE PersonID = @ID";
 
-            GetImagePath(ID, out string ImagePath);
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
@@ -418,44 +271,7 @@ namespace DVDL_DataAccessLayer
                 }
             }
 
-            if (RowsAffected > 0 && !string.IsNullOrEmpty(ImagePath) && File.Exists(ImagePath))
-            {
-                File.Delete(ImagePath);
-            }
-
             return (RowsAffected > 0);
-        }
-
-        public static DataTable GetAllCountries()
-        {
-            DataTable CountriesTable = new DataTable();
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string Query = "SELECT * FROM Countries;";
-            SqlDataReader Reader = null;
-            SqlCommand command = new SqlCommand(Query, Connection);
-
-            try
-            {
-                Connection.Open();
-                Reader = command.ExecuteReader();
-
-                if (Reader.HasRows)
-                {
-                    CountriesTable.Load(Reader);
-                }
-
-                Reader.Close();
-
-            }
-            catch (Exception ex)
-            {
-                //  Console.WriteLine(ex);
-            }
-            finally
-            {
-                Connection.Close();
-            }
-            return CountriesTable;
         }
 
         public static DataTable GetAllPeople()
@@ -483,15 +299,39 @@ namespace DVDL_DataAccessLayer
             }
             return PeopleTable;
         }
-
-        public static bool IsNationalNumberExists(string NationalNo)
+   
+        public static bool IsPersonExists(string NationalNo)
         {
-            string Query = "SELECT COUNT(*) FROM People WHERE NationalNo = @NationalNo";
+            string Query = "SELECT Found = 1 FROM People WHERE NationalNo = @NationalNo";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(Query, connection))
                 {
                     command.Parameters.AddWithValue("@NationalNo", NationalNo);
+                    try
+                    {
+                        connection.Open();
+                        object Result = command.ExecuteScalar();
+                        int count = Convert.ToInt32(Result);
+                        return count > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        // Console.WriteLine(ex);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        public static bool IsPersonExists(int ID)
+        {
+            string Query = "SELECT Found = 1 FROM People WHERE PersonID = @PersonID";
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                using (SqlCommand command = new SqlCommand(Query, connection))
+                {
+                    command.Parameters.AddWithValue("@PersonID", ID);
                     try
                     {
                         connection.Open();
@@ -506,6 +346,9 @@ namespace DVDL_DataAccessLayer
                 }
             }
         }
+        
+      
+
 
     }
 }

@@ -16,7 +16,17 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.PeopleScreens
         public frmPersonDetails(int ID)
         {
             InitializeComponent();
-            clsPerson person = clsPerson.Find(ID);
+            ctrPersonDetails1.LoadPersonInfo(ID);
+        }
+        public frmPersonDetails(string NationalNumber)
+        {
+            InitializeComponent();
+            ctrPersonDetails1.LoadPersonInfo(NationalNumber);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

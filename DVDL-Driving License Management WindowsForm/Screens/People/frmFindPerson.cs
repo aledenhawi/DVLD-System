@@ -10,17 +10,21 @@ using System.Windows.Forms;
 
 namespace DVDL_Driving_License_Management_WindowsForm.Screens.PeopleScreens
 {
-    public partial class frmAddPerson : Form
+    public partial class frmFindPerson : Form
     {
-        public frmAddPerson()
+        public frmFindPerson()
         {
             InitializeComponent();
-            cntAddPerson1.ControlMode = User_Controls.cntAddPerson.enControlMode.Add;
         }
 
-        private void frmAddPerson_Load(object sender, EventArgs e)
-        {
+        public delegate void DataBackHandler(object sender, int ID);
 
+        public event DataBackHandler DataBack;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataBack?.Invoke(this, ctrPersonDetailsWithFilter1.PersonID);
+            this.Close();
         }
     }
 }

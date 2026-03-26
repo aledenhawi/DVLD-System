@@ -18,8 +18,8 @@ namespace DVDL_BusinessLayer
 
         public enum GenderType : byte
         {
-            Male = 0,
-            Female = 1
+            Male = 1,
+            Female = 0
         }
 
         public GenderType Gender { get; set; }
@@ -35,6 +35,7 @@ namespace DVDL_BusinessLayer
         public DateTime DateOfBirth { set; get; }
         public string ImagePath { set; get; }
 
+        public clsCountry CountryInfo;
         public int NationalityCountryID { set; get; }
 
         public clsPerson()
@@ -70,6 +71,7 @@ namespace DVDL_BusinessLayer
             this.DateOfBirth = DateOfBirth;
             this.ImagePath = ImagePath;
             this.NationalityCountryID = NationalityCountryID;
+            this.CountryInfo = clsCountry.Find(NationalityCountryID);
             Mode = enMode.Update;
         }
 
@@ -79,7 +81,7 @@ namespace DVDL_BusinessLayer
             DateTime DateOfBirth = DateTime.Now;
             byte Gender = 0;
             int NationalityCountryID = 0;
-            if (clsPersonData.FindPersonByID(ID, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref NationalNo, ref Email, ref Phone, ref Address, ref DateOfBirth, ref ImagePath, ref NationalityCountryID, ref Gender))
+            if (clsPersonData.GetPersonInfoByID(ID, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref NationalNo, ref Email, ref Phone, ref Address, ref DateOfBirth, ref ImagePath, ref NationalityCountryID, ref Gender))
             {
                 return new clsPerson(ID, FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Email, Phone, Address, DateOfBirth, ImagePath, NationalityCountryID);
             }
@@ -94,7 +96,7 @@ namespace DVDL_BusinessLayer
             byte Gender = 0;
             int NationalityCountryID = 0, ID = 0;
 
-            if (clsPersonData.FindPersonByNationalNo(ref ID, ref FirstName, ref SecondName, ref ThirdName, ref LastName, NationalNo, ref Email, ref Phone, ref Address, ref DateOfBirth, ref ImagePath, ref NationalityCountryID, ref Gender))
+            if (clsPersonData.GetPersonInfoByNationalNo(ref ID, ref FirstName, ref SecondName, ref ThirdName, ref LastName, NationalNo, ref Email, ref Phone, ref Address, ref DateOfBirth, ref ImagePath, ref NationalityCountryID, ref Gender))
             {
                 return new clsPerson(ID, FirstName, SecondName, ThirdName, LastName, Gender, NationalNo, Email, Phone, Address, DateOfBirth, ImagePath, NationalityCountryID);
             }
@@ -107,66 +109,49 @@ namespace DVDL_BusinessLayer
             this.ID = DVDL_DataAccessLayer.clsPersonData.AddNewPerson(this.FirstName, this.SecondName, this.ThirdName, this.LastName, this.NationalNo,
                 this.Email, this.Phone, this.Address, this.DateOfBirth, this.ImagePath, this.NationalityCountryID, (byte)this.Gender);
 
+            this.Mode = (ID != -1) ? enMode.Update : enMode.AddNew;
+
             return (ID != 1);
         }
 
-        private bool _Update(int ID, string FirstName, string SecondName, string ThirdName, string LastName, byte Gender, string NationalNo, string Email,
-         string Phone, string Address, DateTime DateOfBirth, string ImagePath, int NationalityCountryID)
+        private bool _Update()
         {
             return DVDL_DataAccessLayer.clsPersonData.UpdatePerson(ID, FirstName, SecondName, ThirdName, LastName, NationalNo,
-                Email, Phone, Address, DateOfBirth, ImagePath, NationalityCountryID, Gender);
+                Email, Phone, Address, DateOfBirth, ImagePath, NationalityCountryID,(byte)this.Gender);
         }
 
         public bool Save()
         {
             if (Mode == enMode.AddNew)
+            {
                 return _AddNewPerson();
+            }
             else
-                return _Update(this.ID, this.FirstName, this.SecondName, this.ThirdName, this.LastName, (byte)this.Gender, this.NationalNo,
-                    this.Email, this.Phone, this.Address, this.DateOfBirth, this.ImagePath, this.NationalityCountryID);
+                return _Update();
         }
 
-        public bool RemoveImage()
-        {
-            this.ImagePath = "";
-            Save();
-            return DVDL_DataAccessLayer.clsPersonData.RemoveImage(this.ID);
-        }
 
-        public void SetImage(string ImagePath)
-        {
-            DVDL_DataAccessLayer.clsPersonData.SetImage(ID, ImagePath);
-        }
-
-        public static void SetImage(int ID,string ImagePath)
-        {
-            DVDL_DataAccessLayer.clsPersonData.SetImage(ID, ImagePath);
-        }
-
-        public bool Delete()
-        {
-            return DVDL_DataAccessLayer.clsPersonData.DeletePerson(this.ID);
-        }
 
         public static bool DeletePerson(int ID)
         {
             return DVDL_DataAccessLayer.clsPersonData.DeletePerson(ID);
         }
 
-        public static DataTable GetPeopleList()
+        public static DataTable GetAllPeople()
         {
             return DVDL_DataAccessLayer.clsPersonData.GetAllPeople();
         }
 
-        public static DataTable GetCountriesList()
+        public static bool IsPersonExists(string NationalNo)
         {
-            return DVDL_DataAccessLayer.clsPersonData.GetAllCountries();
+            return DVDL_DataAccessLayer.clsPersonData.IsPersonExists(NationalNo);
+        }
+        
+        public static bool IsPersonExists(int ID)
+        {
+            return DVDL_DataAccessLayer.clsPersonData.IsPersonExists(ID);
         }
 
-        public static bool IsNationalNoExists(string NationalNo)
-        {
-            return DVDL_DataAccessLayer.clsPersonData.IsNationalNumberExists(NationalNo);
-        }
         public string GetFullName()
         {
             return $"{FirstName} {SecondName} {ThirdName} {LastName}".Trim();

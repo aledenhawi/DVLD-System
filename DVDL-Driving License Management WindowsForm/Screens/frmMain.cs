@@ -21,14 +21,14 @@ namespace DVDL_Driving_License_Management_WindowsForm
         {
             foreach (Form form in this.MdiChildren)
             {
-                if (form is frmPeople)
+                if (form is frmManagePeople)
                 {
                     form.Activate();
                     return;
                 }
             }
 
-            frmPeople frmPeople = new frmPeople();
+            frmManagePeople frmPeople = new frmManagePeople();
             frmPeople.MdiParent = this;
             frmPeople.Show();
         }
