@@ -14,7 +14,7 @@ namespace DVDL_DataAccessLayer
         public static int AddNewPerson(string FirstName, string SecondName, string ThirdName, string LastName, string NationalNo, string Email,
             string Phone, string Address, DateTime DateOfBirth, string ImagePath, int NationalityCountryID, byte Gender)
         {
-            int ContactID = -1;
+            int PersonID = -1;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -64,7 +64,7 @@ namespace DVDL_DataAccessLayer
 
                 if (result != null && int.TryParse(result.ToString(), out int InsertedID))
                 {
-                    ContactID = InsertedID;
+                    PersonID = InsertedID;
                 }
             }
             catch (Exception ex)
@@ -76,7 +76,7 @@ namespace DVDL_DataAccessLayer
                 Connection.Close();
             }
 
-            return ContactID;
+            return PersonID;
         }
 
         public static bool GetPersonInfoByID(int ID, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName, ref string NationalNo, ref string Email,

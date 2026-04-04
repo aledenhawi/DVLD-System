@@ -1,5 +1,7 @@
 ﻿using DVDL_Driving_License_Management_WindowsForm.Screens;
+using DVDL_Driving_License_Management_WindowsForm.Screens.ApplicationsType;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Basic;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Tests.TestTypes;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Users;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Users.Controls;
 using DVLD_Classes;
@@ -66,6 +68,25 @@ namespace DVDL_Driving_License_Management_WindowsForm
             frmUsersManagment UsersManagment = new frmUsersManagment();
             UsersManagment.MdiParent = this;
             UsersManagment.Show();
+        }
+
+        private void tsManageApplicationTypes_Click(object sender, EventArgs e)
+        {
+            frmTestTypesManagment manageTestTypes = new frmTestTypesManagment();
+            manageTestTypes.MdiParent = this;
+            manageTestTypes.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes manageApplicationTypes = new frmManageApplicationTypes();
+            manageApplicationTypes.MdiParent = this;
+            manageApplicationTypes.Show();
+        }
+
+        private void stDrivingLisencesServices_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

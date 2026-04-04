@@ -53,6 +53,18 @@
   <ItemGroup>
     <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="Screens\ApplicationsType\frmApplicationTypesManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\ApplicationsType\frmApplicationTypesManagment.Designer.cs">
+      <DependentUpon>frmApplicationTypesManagment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\ApplicationsType\frmUpdateApplicationType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\ApplicationsType\frmUpdateApplicationType.Designer.cs">
+      <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Screens\Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +81,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Tests\TestTypes\frmTestTypesManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Tests\TestTypes\frmTestTypesManagment.Designer.cs">
+      <DependentUpon>frmTestTypesManagment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Tests\TestTypes\frmUpdateTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Tests\TestTypes\frmUpdateTestType.Designer.cs">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Users\Controls\ctrUserDetails.cs">
       <SubType>UserControl</SubType>
@@ -138,6 +162,12 @@
     <Compile Include="Screens\People\Controls\ctrPersonDetailsWithFilter.Designer.cs">
       <DependentUpon>ctrPersonDetailsWithFilter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Screens\ApplicationsType\frmApplicationTypesManagment.resx">
+      <DependentUpon>frmApplicationTypesManagment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\ApplicationsType\frmUpdateApplicationType.resx">
+      <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +196,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\People\Controls\ctrPersonDetailsWithFilter.resx">
       <DependentUpon>ctrPersonDetailsWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Tests\TestTypes\frmTestTypesManagment.resx">
+      <DependentUpon>frmTestTypesManagment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Tests\TestTypes\frmUpdateTestType.resx">
+      <DependentUpon>frmUpdateTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Users\Controls\ctrUserDetails.resx">
       <DependentUpon>ctrUserDetails.cs</DependentUpon>
@@ -316,6 +352,20 @@
     <None Include="Resources\Next.png" />
     <None Include="Resources\Next 32.png" />
     <None Include="Resources\Next 32px.png" />
+    <None Include="Resources\title.png" />
+    <None Include="Resources\Fees.png" />
+    <None Include="Resources\Manage Applications 32.png" />
+    <None Include="Resources\title1.png" />
+    <None Include="Resources\Manage Applications.png" />
+    <None Include="Resources\Applications.png" />
+    <None Include="Resources\application.png" />
+    <None Include="Resources\edit-Application.png" />
+    <None Include="Resources\Manage TestTypes.png" />
+    <None Include="Resources\ManageTestTypes.png" />
+    <None Include="Resources\ManageTestTypes 512.png" />
+    <None Include="Resources\edit-Application1.png" />
+    <None Include="Resources\Driving License 32.png" />
+    <None Include="Resources\Add Driving License.png" />
     <Content Include="Screens\Login\LogFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
