@@ -167,6 +167,25 @@ namespace DVDL_BusinessLayer
             return DVDL_DataAccessLayer.clsPersonData.IsPersonExists(ID);
         }
 
+        public static short CalculateAge(DateTime DateOfBirth)
+        {
+            DateTime now = DateTime.Now;
+
+            int age = now.Year - DateOfBirth.Year;
+
+            if (now.Month < DateOfBirth.Month || (now.Month == DateOfBirth.Month && now.Day < DateOfBirth.Day))
+            {
+                age--;
+            }
+
+            return (short)age;
+        }
+
+        public short CalculateAge()
+        {
+            return CalculateAge(this.DateOfBirth);
+        }
+
         public string GetFullName()
         {
             return $"{FirstName} {SecondName} {ThirdName} {LastName}".Trim();

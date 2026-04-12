@@ -150,6 +150,7 @@ namespace DVDL_DataAccessLayer
                     SecondName = Reader["SecondName"].ToString();
                     ThirdName = Reader["ThirdName"] != DBNull.Value ? Reader["ThirdName"].ToString() : "";
                     LastName = Reader["LastName"].ToString();
+                    Gender = Convert.ToByte(Reader["Gendor"]);
                     Email = Reader["Email"] != DBNull.Value ? Reader["Email"].ToString() : "";
                     Phone = Reader["Phone"].ToString();
                     Address = Reader["Address"].ToString();

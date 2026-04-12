@@ -41,9 +41,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cmbPeopleFiltring = new System.Windows.Forms.ComboBox();
             this.lblTotalRecords = new System.Windows.Forms.Label();
+            this.txbFiltringPeople = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnAddNewPerson = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txbFiltringPeople = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeopleList)).BeginInit();
             this.cmsPeopleList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -54,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SlateGray;
-            this.label1.Location = new System.Drawing.Point(593, 240);
+            this.label1.Location = new System.Drawing.Point(638, 254);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(304, 49);
@@ -75,7 +76,7 @@
             this.dgvPeopleList.ReadOnly = true;
             this.dgvPeopleList.RowHeadersWidth = 51;
             this.dgvPeopleList.RowTemplate.Height = 26;
-            this.dgvPeopleList.Size = new System.Drawing.Size(1566, 356);
+            this.dgvPeopleList.Size = new System.Drawing.Size(1432, 356);
             this.dgvPeopleList.TabIndex = 2;
             // 
             // cmsPeopleList
@@ -182,38 +183,12 @@
             this.lblTotalRecords.BackColor = System.Drawing.Color.Transparent;
             this.lblTotalRecords.Font = new System.Drawing.Font("Perpetua", 16F);
             this.lblTotalRecords.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblTotalRecords.Location = new System.Drawing.Point(1, 672);
+            this.lblTotalRecords.Location = new System.Drawing.Point(114, 672);
             this.lblTotalRecords.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalRecords.Name = "lblTotalRecords";
             this.lblTotalRecords.Size = new System.Drawing.Size(26, 31);
             this.lblTotalRecords.TabIndex = 7;
             this.lblTotalRecords.Text = "0";
-            // 
-            // btnAddNewPerson
-            // 
-            this.btnAddNewPerson.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.add_newPerson;
-            this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAddNewPerson.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddNewPerson.FlatAppearance.BorderSize = 0;
-            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(1275, 246);
-            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddNewPerson.Name = "btnAddNewPerson";
-            this.btnAddNewPerson.Size = new System.Drawing.Size(78, 62);
-            this.btnAddNewPerson.TabIndex = 8;
-            this.btnAddNewPerson.UseVisualStyleBackColor = true;
-            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.PeoplePic;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(573, -17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(337, 255);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // txbFiltringPeople
             // 
@@ -226,12 +201,52 @@
             this.txbFiltringPeople.TextChanged += new System.EventHandler(this.txbFiltringPeople_TextChanged);
             this.txbFiltringPeople.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbFiltringPeople_KeyPress);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Perpetua", 16F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(0, 672);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 31);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Records :";
+            // 
+            // btnAddNewPerson
+            // 
+            this.btnAddNewPerson.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.add_newPerson;
+            this.btnAddNewPerson.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAddNewPerson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddNewPerson.FlatAppearance.BorderSize = 0;
+            this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewPerson.Location = new System.Drawing.Point(1334, 246);
+            this.btnAddNewPerson.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddNewPerson.Name = "btnAddNewPerson";
+            this.btnAddNewPerson.Size = new System.Drawing.Size(78, 62);
+            this.btnAddNewPerson.TabIndex = 8;
+            this.btnAddNewPerson.UseVisualStyleBackColor = true;
+            this.btnAddNewPerson.Click += new System.EventHandler(this.btnAddNewPerson_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.PeoplePic;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(618, -3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(337, 255);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmManagePeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(1367, 742);
+            this.ClientSize = new System.Drawing.Size(1425, 742);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAddNewPerson);
             this.Controls.Add(this.lblTotalRecords);
             this.Controls.Add(this.txbFiltringPeople);
@@ -271,5 +286,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsSendEmail;
         private System.Windows.Forms.ToolStripMenuItem tsPhoneCall;
         private System.Windows.Forms.TextBox txbFiltringPeople;
+        private System.Windows.Forms.Label label3;
     }
 }

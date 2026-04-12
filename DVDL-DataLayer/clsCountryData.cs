@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,7 @@ namespace DVDL_DataLayer
         {
             bool isFound = false;
             Name = "";
+            SqlDataReader Reader = null;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -59,7 +61,7 @@ namespace DVDL_DataLayer
             try
             {
                 Connection.Open();
-                SqlDataReader Reader = command.ExecuteReader();
+                Reader = command.ExecuteReader();
 
                 if (Reader.Read())
                 {
@@ -75,6 +77,8 @@ namespace DVDL_DataLayer
             }
             finally
             {
+                if (Reader != null)
+                    Reader.Close();
                 Connection.Close();
             }
             return isFound;
@@ -110,6 +114,7 @@ namespace DVDL_DataLayer
             }
             finally
             {
+
                 Connection.Close();
             }
             return isFound;

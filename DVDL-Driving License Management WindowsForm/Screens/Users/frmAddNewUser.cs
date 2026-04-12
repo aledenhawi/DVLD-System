@@ -29,7 +29,8 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
            
         }
 
-        private bool isPersonFound = false;
+        private bool _IsPersonFound = false;
+        private bool _IsValidated = false;
 
         int _UserID = -1;
 
@@ -43,23 +44,22 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
         {
             if (_Mode == enMode.Add)
             {
+                _IsPersonFound = false;
                 lblTitle.Text = "Add New User";
                 this.Text = "Add New User";
                 _User = new clsUser();
 
-                btnSave.Enabled = false;
                 tbLoginInfo.Enabled = false;
                 btnReset.Visible = true;
                 ctrPersonDetailsWithFilter1.FilterFocus();
             }
             else 
             {
+                _IsPersonFound = true;
+                lblTitle.Text = "Update User";
+                this.Text = "Update User";
 
-                lblTitle.Text = "Update";
-                this.Text = "Update";
-
-                btnSave.Enabled = true;
-                btnReset.Visible = true;
+                btnReset.Visible = false;
             }
 
             txbConfirmPasswrod.Text = "";
@@ -70,9 +70,6 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
 
         private void _LoadData() 
         {
-
-            isPersonFound = true;
-            btnReset.Visible = false;
             _User = clsUser.Find(_UserID);
 
             ctrPersonDetailsWithFilter1.FilterEnable = false;
@@ -93,34 +90,12 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
 
         }
 
-        private bool IsTextboxValid()
-        {
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox txt)
-                {
-                    if (string.IsNullOrWhiteSpace(txt.Text))
-                    {
-                        errorProvider1.SetError(txt, "Invalid Inputs");
-                        return false;
-                    }
-                }
-            }
-            if (txbPassword.Text.Trim() != txbConfirmPasswrod.Text.Trim())
-            {
-                errorProvider1.SetError(txbConfirmPasswrod, "the two passwords is dismatched!");
-                return false;
-            }
-            return true;
-        }
-
         private void frmAddUpdateUser_Load(object sender, EventArgs e)
         {
             _ResetDefaultValues();
 
             if(_Mode == enMode.Update)
             {
-                ctrPersonDetailsWithFilter1.FilterEnable = true;
                 _LoadData();
             }
         }
@@ -130,26 +105,24 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
 
             if (_Mode == enMode.Update)
             {
-                btnSave.Enabled = true;
                 tbLoginInfo.Enabled = true;
-                tabPage.SelectedTab = tbLoginInfo;
+                tabControl.SelectedTab = tbLoginInfo;
                 return;
             }
 
 
-            if (isPersonFound) 
+            if (_IsPersonFound) 
             {
                 if (clsUser.IsExistsUsingPersonID(ctrPersonDetailsWithFilter1.PersonID))
                 {
-                    MessageBox.Show("This person is aleady has a user!,Choose another one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    isPersonFound = false;
+                    MessageBox.Show("This person is already has a user!,Choose another one.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnReset.PerformClick();
                     return;
                 }
                 else 
                 {
-                    btnSave.Enabled = true;
                     tbLoginInfo.Enabled = true;
-                    tabPage.SelectedTab = tbLoginInfo;
+                    tabControl.SelectedTab = tbLoginInfo;
                     ctrPersonDetailsWithFilter1.FilterEnable = false;
                 }
             }
@@ -163,13 +136,11 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(!this.ValidateChildren())
+            if (!_IsValidated)
             {
                 MessageBox.Show("Please correct the errors before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return; 
             }
-
-            if (!IsTextboxValid()) { return; }
 
             _User.PersonID = ctrPersonDetailsWithFilter1.PersonID;
             _User.Username = txbUsername.Text.Trim();
@@ -198,19 +169,23 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
         {
             if (string.IsNullOrEmpty(txbConfirmPasswrod.Text.Trim()))
             {
+                _IsValidated = false;
                 errorProvider1.SetError(txbConfirmPasswrod, "This Faild Cann't be null!");
             }
             else
             {
+                _IsValidated = true;
                 errorProvider1.SetError(txbConfirmPasswrod, null);
             }
 
             if (txbConfirmPasswrod.Text.Trim() != txbPassword.Text.Trim())
             {
+                _IsValidated = false;
                 errorProvider1.SetError(txbConfirmPasswrod, "Make sure the two password is matched!");
             }
             else
             {
+                _IsValidated = true;
                 errorProvider1.SetError(txbConfirmPasswrod, null);
             }
         }
@@ -221,19 +196,34 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
 
             if (string.IsNullOrEmpty(textBox.Text.Trim()))
             {
-                e.Cancel = true;
+                _IsValidated = false;
                 errorProvider1.SetError(textBox, "This Faild Cann't be null.");
             }
             else if (clsUser.IsExists(txbUsername.Text.Trim())&&_User.Username.ToString() != txbUsername.Text.Trim()) 
             {
-                e.Cancel = true;
-            errorProvider1.SetError(textBox, "Username is already exists , try another one.");
+                _IsValidated = false;
+                errorProvider1.SetError(textBox, "Username is already exists , try another one.");
             }
             else
             {
-                e.Cancel = false;
+                _IsValidated = true;
                 errorProvider1.SetError(textBox, null);
             }
+        }
+
+        private void ctrPersonDetailsWithFilter1_OnPersonSelected(int obj)
+        {
+            _IsPersonFound = true;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            _IsPersonFound = false;
+            ctrPersonDetailsWithFilter1.FilterEnable = true;
+            ctrPersonDetailsWithFilter1.ResetPersonInfo();
+            txbConfirmPasswrod.Text = "";
+            txbPassword.Text = "";
+            txbUsername.Text = "";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -241,19 +231,5 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
             this.Close();
         }
 
-        private void ctrPersonDetailsWithFilter1_OnPersonSelected(int obj)
-        {
-            isPersonFound = true;
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            isPersonFound = false;
-            ctrPersonDetailsWithFilter1.FilterEnable = true;
-            ctrPersonDetailsWithFilter1.ResetPersonInfo();
-            txbConfirmPasswrod.Text = "";
-            txbPassword.Text = "";
-            txbUsername.Text = "";
-        }
     }
 }

@@ -37,11 +37,14 @@
             this.tsChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSingOut = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDrivingLicensesServices = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -143,6 +146,7 @@
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4,
             this.tsDrivingLicensesServices,
             this.toolStripSeparator1,
             this.toolStripMenuItem6,
@@ -154,24 +158,73 @@
             this.toolStripMenuItem5.Size = new System.Drawing.Size(250, 74);
             this.toolStripMenuItem5.Text = "Applications";
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem7});
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.SlateGray;
+            this.toolStripMenuItem4.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Driver_License_48;
+            this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(338, 54);
+            this.toolStripMenuItem4.Text = "Driving Licenses Services";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem7.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem8});
+            this.toolStripMenuItem7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem7.ForeColor = System.Drawing.Color.SlateGray;
+            this.toolStripMenuItem7.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.New_Driving_License_32;
+            this.toolStripMenuItem7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(276, 38);
+            this.toolStripMenuItem7.Text = "New Driving License";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem8.Font = new System.Drawing.Font("Times New Roman", 8F);
+            this.toolStripMenuItem8.ForeColor = System.Drawing.Color.SlateGray;
+            this.toolStripMenuItem8.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Local_32;
+            this.toolStripMenuItem8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(227, 38);
+            this.toolStripMenuItem8.Text = "Local Driving License";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.tsLocalDrivingLicense_Click);
+            // 
             // tsDrivingLicensesServices
             // 
             this.tsDrivingLicensesServices.BackColor = System.Drawing.Color.DarkSlateGray;
             this.tsDrivingLicensesServices.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem4});
+            this.toolStripMenuItem9});
             this.tsDrivingLicensesServices.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsDrivingLicensesServices.ForeColor = System.Drawing.Color.SlateGray;
-            this.tsDrivingLicensesServices.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Driving_License_32;
+            this.tsDrivingLicensesServices.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Manage_Applications_321;
             this.tsDrivingLicensesServices.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsDrivingLicensesServices.Name = "tsDrivingLicensesServices";
-            this.tsDrivingLicensesServices.Size = new System.Drawing.Size(322, 38);
-            this.tsDrivingLicensesServices.Text = "Driving Licenses Services";
-            this.tsDrivingLicensesServices.Click += new System.EventHandler(this.stDrivingLisencesServices_Click);
+            this.tsDrivingLicensesServices.Size = new System.Drawing.Size(338, 54);
+            this.tsDrivingLicensesServices.Text = "Manage Application Types";
+            // 
+            // toolStripMenuItem9
+            // 
+            this.toolStripMenuItem9.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripMenuItem9.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.toolStripMenuItem9.ForeColor = System.Drawing.Color.SlateGray;
+            this.toolStripMenuItem9.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Local_32;
+            this.toolStripMenuItem9.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(257, 38);
+            this.toolStripMenuItem9.Text = "Local Driving License";
+            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(319, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(335, 6);
             // 
             // toolStripMenuItem6
             // 
@@ -181,8 +234,9 @@
             this.toolStripMenuItem6.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Manage_Applications_32;
             this.toolStripMenuItem6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(322, 38);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(338, 54);
             this.toolStripMenuItem6.Text = "Manage Application Types";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.tsManageApplicationTypes_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -192,19 +246,9 @@
             this.toolStripMenuItem3.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.ManageTestTypes;
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(322, 38);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(338, 54);
             this.toolStripMenuItem3.Text = "Manage Test Types";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripMenuItem4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem4.ForeColor = System.Drawing.Color.SlateGray;
-            this.toolStripMenuItem4.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Driving_License_32;
-            this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(284, 38);
-            this.toolStripMenuItem4.Text = "New Driving Licenses";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
             // frmMain
             // 
@@ -248,6 +292,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     }
 }
 

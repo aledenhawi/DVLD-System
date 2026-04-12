@@ -13,7 +13,7 @@ namespace DVDL_BusinessLayer
         enum enMode { AddNew = 1, Update = 2 }
         enMode _Mode;
 
-        public enum enTestType { VisionTest = 1, WrittenTest = 2, StreetTest = 3 }
+        public enum enTestType { Vision = 1, Written = 2, Street = 3 }
         
         public enTestType ID { get; set; }
 
@@ -24,7 +24,7 @@ namespace DVDL_BusinessLayer
 
         public clsTestType()
         {
-            this.ID = enTestType.VisionTest;
+            this.ID = enTestType.Vision;
             this.Title = "";
             this.Description = "";
             this.Fees = 0.0f;

@@ -13,7 +13,12 @@ namespace DVDL_BusinessLayer
         public int ID { get; set; }
         public string CountryName { get; set; }
 
-        public clsCountry() { }
+        public clsCountry() 
+        {
+            ID = -1;
+            CountryName = string.Empty;
+        }
+
         private clsCountry(int ID, string Name)
         {
             this.ID = ID;

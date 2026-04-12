@@ -313,7 +313,7 @@ namespace DVDL_DataLayer
 
         public static bool IsUserExistsUsingPersonID(int PersonID)
         {
-            string Query = "SELECT count(Found = 1) FROM Users WHERE PersonID = @PersonID";
+            string Query = "SELECT count(*) FROM Users WHERE PersonID = @PersonID";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(Query, connection))
@@ -324,11 +324,9 @@ namespace DVDL_DataLayer
                         connection.Open();
                         int count;
 
-                        if (command.ExecuteScalar() == null)
-                             count = 0;
-                        else
-                             count = 1;
+                        object Result = command.ExecuteScalar();
 
+                             count = Convert.ToInt32(Result);
                         return count > 0;
                     }
                     catch (Exception ex)

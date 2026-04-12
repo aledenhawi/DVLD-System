@@ -34,7 +34,7 @@ namespace DVDL_Driving_License_Management_WindowsForm
 
             lblTotalRecords.Text = PeopleDataTable.Rows.Count.ToString();
 
-            if (dgvPeopleList.SelectedRows.Count > 0) 
+            if (dgvPeopleList.Rows.Count > 0) 
             {
                 dgvPeopleList.Columns["PersonID"].HeaderText = "Person ID";
                 dgvPeopleList.Columns["PersonID"].Width = 110;

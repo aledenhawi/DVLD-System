@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsApplicationType.cs" />
+    <Compile Include="clsApplication.cs" />
+    <Compile Include="clsTestAppointment.cs" />
+    <Compile Include="clsLicenseClasses.cs" />
+    <Compile Include="clsLocalDrivingLicenseApplication.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsTestType.cs" />

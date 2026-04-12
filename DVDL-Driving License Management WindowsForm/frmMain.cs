@@ -1,4 +1,5 @@
 ﻿using DVDL_Driving_License_Management_WindowsForm.Screens;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Applications;
 using DVDL_Driving_License_Management_WindowsForm.Screens.ApplicationsType;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Basic;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Tests.TestTypes;
@@ -25,6 +26,7 @@ namespace DVDL_Driving_License_Management_WindowsForm
         }
 
         internal bool IsSignOut = false;
+
 
         private void sdPeople_Click(object sender, EventArgs e)
         {
@@ -70,23 +72,31 @@ namespace DVDL_Driving_License_Management_WindowsForm
             UsersManagment.Show();
         }
 
-        private void tsManageApplicationTypes_Click(object sender, EventArgs e)
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
-            frmTestTypesManagment manageTestTypes = new frmTestTypesManagment();
-            manageTestTypes.MdiParent = this;
-            manageTestTypes.Show();
+            frmLocalDrivingLicenseApplications localDrivingLicenseApplications = new frmLocalDrivingLicenseApplications();
+            localDrivingLicenseApplications.MdiParent = this;
+            localDrivingLicenseApplications.Show();
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void tsLocalDrivingLicense_Click(object sender, EventArgs e)
+        {
+            frmAddEditLocalDrivingLicenseApplication addEditLocalDrivingLicenseApplication = new frmAddEditLocalDrivingLicenseApplication();
+            addEditLocalDrivingLicenseApplication.Show();
+        }
+
+        private void tsManageApplicationTypes_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes manageApplicationTypes = new frmManageApplicationTypes();
             manageApplicationTypes.MdiParent = this;
             manageApplicationTypes.Show();
         }
 
-        private void stDrivingLisencesServices_Click(object sender, EventArgs e)
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-
+            frmTestTypesManagment frmTestTypesManagment = new frmTestTypesManagment();
+            frmTestTypesManagment.MdiParent = this;
+            frmTestTypesManagment.Show();
         }
     }
 }
