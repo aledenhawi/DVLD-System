@@ -14,7 +14,7 @@ namespace DVDL_BusinessLayer
         protected enMode Mode;
 
         public enum enApplicationType {NewLocalDrivingLicense = 1 , RenewDrivingLicnes = 2 , ReplacementforLostDrivingLicense = 3 ,
-            ReplacementforDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6,RetakeTest = 8}
+            ReplacementforDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6,RetakeTest = 7}
 
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 }
 

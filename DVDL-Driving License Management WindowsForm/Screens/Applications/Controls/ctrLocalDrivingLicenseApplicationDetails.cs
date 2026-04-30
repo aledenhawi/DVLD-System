@@ -55,12 +55,12 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Contr
 
         private void _FillLocalDrivingLicenseApplicationInfo() 
         {
-            // Check1 add here function to get LicenseID 
+            // Check it add here function to get LicenseID 
             linkLabel1.Enabled = ( _LicenseID !=-1);
 
              lblDLApplicationID.Text = _LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID.ToString();
              lblPassedTest.Text = "3/" + _LocalDrivingLicenseApplicationInfo.PassedTest.ToString();
-             lblAppliedForLicense.Text = _LocalDrivingLicenseApplicationInfo.LicenseClass.Name;
+             lblAppliedForLicense.Text = _LocalDrivingLicenseApplicationInfo.LicenseClassInfo.Name;
              lblID.Text = _LocalDrivingLicenseApplicationInfo.ApplicationID.ToString();
              lblApplicant.Text = _LocalDrivingLicenseApplicationInfo.PersonInfo.GetFullName();
              lblCreatedBy.Text = _LocalDrivingLicenseApplicationInfo.CreatedByUserInfo.Username.ToString();

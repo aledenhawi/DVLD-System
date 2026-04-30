@@ -22,7 +22,7 @@ namespace DVDL_BusinessLayer
 
         public int LicenseClassID { get; set; }
 
-        public clsLicenseClasses LicenseClass { get; set; }
+        public clsLicenseClasses LicenseClassInfo { get; set; }
 
         public clsLocalDrivingLicenseApplication()
         {
@@ -38,7 +38,7 @@ namespace DVDL_BusinessLayer
         {
             LocalDrivingLicenseApplicationID = _LocalDrivingLicenseApplicationsID;
             LicenseClassID = _LicenseClassID;
-            LicenseClass = clsLicenseClasses.Find(LicenseClassID);
+            LicenseClassInfo = clsLicenseClasses.Find(LicenseClassID);
             _Mode = enMode.Update;
             // Check it Later
             PassedTest = clsLocalDrivingLicenseApplicationData.GetPassedTest(_LocalDrivingLicenseApplicationsID);
@@ -145,7 +145,7 @@ namespace DVDL_BusinessLayer
 
         }
 
-        public bool DoesPassedPrivousTestType(clsTestType.enTestType CurrentTestTypeID)
+        public bool DoesPassedPreviousTestType(clsTestType.enTestType CurrentTestTypeID)
         {
             int TestTypeID = ((int)CurrentTestTypeID - 1) > 0 ? (int)CurrentTestTypeID - 1 : 1;
             return clsLocalDrivingLicenseApplicationData.DoesPassTestType(LocalDrivingLicenseApplicationID, TestTypeID);

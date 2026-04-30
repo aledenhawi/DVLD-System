@@ -289,8 +289,8 @@ namespace DVDL_DataLayer
                                ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID
                              INNER JOIN Tests
                                ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID
-                             WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = 30 
-                               AND TestTypeID = 1
+                             WHERE LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID
+                               AND TestTypeID = @TestTypeID
                              ORDER BY TestAppointments.TestAppointmentID DESC;";
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -387,8 +387,6 @@ namespace DVDL_DataLayer
             string Query = @"Select top 1 Found = 1 from LocalDrivingLicenseApplications
                              INNER JOIN TestAppointments
                              ON LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = TestAppointments.LocalDrivingLicenseApplicationID
-                             INNER JOIN Tests
-                             ON TestAppointments.TestAppointmentID = Tests.TestAppointmentID  
                              where TestTypeID = @TestTypeID AND LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID AND IsLocked = 0
                              Order By TestAppointments.TestAppointmentID desc;";
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))

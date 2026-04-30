@@ -8,6 +8,6 @@ namespace DVDL_DataLayer
 {
     internal class clsDataAccessSettings
     {
-        public static string ConnectionString = "Server=.;Database=DVLDDB;User Id=sa;Password=123456;";
+        public static string ConnectionString = "Server=.;Database=DVLD_DB;User Id=sa;Password=123456;";
     }
 }

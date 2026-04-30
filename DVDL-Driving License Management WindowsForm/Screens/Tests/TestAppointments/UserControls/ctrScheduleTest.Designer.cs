@@ -1,13 +1,13 @@
-﻿namespace DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments
+﻿namespace DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments.UserControls
 {
-    partial class frmSchedualTest
+    partial class ctrScheduleTest
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,17 +20,19 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrScheduleTest));
+            this.gbScheduleTest = new System.Windows.Forms.GroupBox();
+            this.lblUserMessage = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.gbRetakeExam = new System.Windows.Forms.GroupBox();
+            this.gbRetakeTest = new System.Windows.Forms.GroupBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -45,9 +47,9 @@
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblTrial = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblFullName = new System.Windows.Forms.Label();
             this.lblDrivingLicenseClass = new System.Windows.Forms.Label();
-            this.lblDrivingLicenseAppID = new System.Windows.Forms.Label();
+            this.lblLocalDrivingLicenseAppID = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -60,10 +62,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbTestType = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.gbRetakeExam.SuspendLayout();
+            this.gbScheduleTest.SuspendLayout();
+            this.gbRetakeTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -76,36 +76,50 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbTestType)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbScheduleTest
             // 
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.gbRetakeExam);
-            this.groupBox1.Controls.Add(this.dtpAppointmentDate);
-            this.groupBox1.Controls.Add(this.lblFees);
-            this.groupBox1.Controls.Add(this.pictureBox7);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblTrial);
-            this.groupBox1.Controls.Add(this.lblName);
-            this.groupBox1.Controls.Add(this.lblDrivingLicenseClass);
-            this.groupBox1.Controls.Add(this.lblDrivingLicenseAppID);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.pictureBox4);
-            this.groupBox1.Controls.Add(this.pictureBox3);
-            this.groupBox1.Controls.Add(this.pictureBox2);
-            this.groupBox1.Controls.Add(this.pictureBox6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.pbTestType);
-            this.groupBox1.Controls.Add(this.lblTitle);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(651, 694);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Vission Test";
+            this.gbScheduleTest.Controls.Add(this.lblUserMessage);
+            this.gbScheduleTest.Controls.Add(this.btnSave);
+            this.gbScheduleTest.Controls.Add(this.gbRetakeTest);
+            this.gbScheduleTest.Controls.Add(this.dtpAppointmentDate);
+            this.gbScheduleTest.Controls.Add(this.lblFees);
+            this.gbScheduleTest.Controls.Add(this.pictureBox7);
+            this.gbScheduleTest.Controls.Add(this.label7);
+            this.gbScheduleTest.Controls.Add(this.lblTrial);
+            this.gbScheduleTest.Controls.Add(this.lblFullName);
+            this.gbScheduleTest.Controls.Add(this.lblDrivingLicenseClass);
+            this.gbScheduleTest.Controls.Add(this.lblLocalDrivingLicenseAppID);
+            this.gbScheduleTest.Controls.Add(this.pictureBox5);
+            this.gbScheduleTest.Controls.Add(this.pictureBox4);
+            this.gbScheduleTest.Controls.Add(this.pictureBox3);
+            this.gbScheduleTest.Controls.Add(this.pictureBox2);
+            this.gbScheduleTest.Controls.Add(this.pictureBox6);
+            this.gbScheduleTest.Controls.Add(this.label5);
+            this.gbScheduleTest.Controls.Add(this.label4);
+            this.gbScheduleTest.Controls.Add(this.label3);
+            this.gbScheduleTest.Controls.Add(this.label2);
+            this.gbScheduleTest.Controls.Add(this.label1);
+            this.gbScheduleTest.Controls.Add(this.pbTestType);
+            this.gbScheduleTest.Controls.Add(this.lblTitle);
+            this.gbScheduleTest.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gbScheduleTest.Location = new System.Drawing.Point(3, 3);
+            this.gbScheduleTest.Name = "gbScheduleTest";
+            this.gbScheduleTest.Size = new System.Drawing.Size(651, 694);
+            this.gbScheduleTest.TabIndex = 1;
+            this.gbScheduleTest.TabStop = false;
+            this.gbScheduleTest.Text = "Vission Test";
+            // 
+            // lblUserMessage
+            // 
+            this.lblUserMessage.AutoSize = true;
+            this.lblUserMessage.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblUserMessage.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblUserMessage.Location = new System.Drawing.Point(96, 206);
+            this.lblUserMessage.Name = "lblUserMessage";
+            this.lblUserMessage.Size = new System.Drawing.Size(486, 24);
+            this.lblUserMessage.TabIndex = 105;
+            this.lblUserMessage.Text = "Cannot Schedule , Vission Test Shoud Be Passed First";
+            this.lblUserMessage.Visible = false;
             // 
             // btnSave
             // 
@@ -115,7 +129,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.save1;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(475, 638);
             this.btnSave.Name = "btnSave";
@@ -125,27 +139,27 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // gbRetakeExam
+            // gbRetakeTest
             // 
-            this.gbRetakeExam.Controls.Add(this.pictureBox10);
-            this.gbRetakeExam.Controls.Add(this.pictureBox9);
-            this.gbRetakeExam.Controls.Add(this.pictureBox8);
-            this.gbRetakeExam.Controls.Add(this.lblRetakeTestID);
-            this.gbRetakeExam.Controls.Add(this.label6);
-            this.gbRetakeExam.Controls.Add(this.lblTotalFees);
-            this.gbRetakeExam.Controls.Add(this.lblRetakeApplicationFees);
-            this.gbRetakeExam.Controls.Add(this.label8);
-            this.gbRetakeExam.Controls.Add(this.label9);
-            this.gbRetakeExam.Location = new System.Drawing.Point(26, 493);
-            this.gbRetakeExam.Name = "gbRetakeExam";
-            this.gbRetakeExam.Size = new System.Drawing.Size(613, 139);
-            this.gbRetakeExam.TabIndex = 103;
-            this.gbRetakeExam.TabStop = false;
-            this.gbRetakeExam.Text = "Retake Test Info";
+            this.gbRetakeTest.Controls.Add(this.pictureBox10);
+            this.gbRetakeTest.Controls.Add(this.pictureBox9);
+            this.gbRetakeTest.Controls.Add(this.pictureBox8);
+            this.gbRetakeTest.Controls.Add(this.lblRetakeTestID);
+            this.gbRetakeTest.Controls.Add(this.label6);
+            this.gbRetakeTest.Controls.Add(this.lblTotalFees);
+            this.gbRetakeTest.Controls.Add(this.lblRetakeApplicationFees);
+            this.gbRetakeTest.Controls.Add(this.label8);
+            this.gbRetakeTest.Controls.Add(this.label9);
+            this.gbRetakeTest.Location = new System.Drawing.Point(26, 493);
+            this.gbRetakeTest.Name = "gbRetakeTest";
+            this.gbRetakeTest.Size = new System.Drawing.Size(613, 139);
+            this.gbRetakeTest.TabIndex = 103;
+            this.gbRetakeTest.TabStop = false;
+            this.gbRetakeTest.Text = "Retake Test Info";
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.money_32;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.Location = new System.Drawing.Point(463, 31);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(34, 30);
@@ -155,7 +169,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.money_32;
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.Location = new System.Drawing.Point(159, 35);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(34, 30);
@@ -165,7 +179,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.id_card__1_;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(159, 71);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(34, 30);
@@ -248,7 +262,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.id_card;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
             this.pictureBox7.Location = new System.Drawing.Point(133, 327);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(34, 30);
@@ -274,14 +288,14 @@
             this.lblTrial.TabIndex = 97;
             this.lblTrial.Text = "[???]";
             // 
-            // lblName
+            // lblFullName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(188, 327);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(53, 24);
-            this.lblName.TabIndex = 96;
-            this.lblName.Text = "[???]";
+            this.lblFullName.AutoSize = true;
+            this.lblFullName.Location = new System.Drawing.Point(188, 327);
+            this.lblFullName.Name = "lblFullName";
+            this.lblFullName.Size = new System.Drawing.Size(53, 24);
+            this.lblFullName.TabIndex = 96;
+            this.lblFullName.Text = "[???]";
             // 
             // lblDrivingLicenseClass
             // 
@@ -292,18 +306,18 @@
             this.lblDrivingLicenseClass.TabIndex = 95;
             this.lblDrivingLicenseClass.Text = "[???]";
             // 
-            // lblDrivingLicenseAppID
+            // lblLocalDrivingLicenseAppID
             // 
-            this.lblDrivingLicenseAppID.AutoSize = true;
-            this.lblDrivingLicenseAppID.Location = new System.Drawing.Point(188, 251);
-            this.lblDrivingLicenseAppID.Name = "lblDrivingLicenseAppID";
-            this.lblDrivingLicenseAppID.Size = new System.Drawing.Size(53, 24);
-            this.lblDrivingLicenseAppID.TabIndex = 94;
-            this.lblDrivingLicenseAppID.Text = "[???]";
+            this.lblLocalDrivingLicenseAppID.AutoSize = true;
+            this.lblLocalDrivingLicenseAppID.Location = new System.Drawing.Point(188, 251);
+            this.lblLocalDrivingLicenseAppID.Name = "lblLocalDrivingLicenseAppID";
+            this.lblLocalDrivingLicenseAppID.Size = new System.Drawing.Size(53, 24);
+            this.lblLocalDrivingLicenseAppID.TabIndex = 94;
+            this.lblLocalDrivingLicenseAppID.Text = "[???]";
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.calendar;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.Location = new System.Drawing.Point(133, 405);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(34, 30);
@@ -313,7 +327,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Count_32;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.Location = new System.Drawing.Point(133, 367);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(34, 30);
@@ -323,7 +337,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.money_32;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.Location = new System.Drawing.Point(131, 441);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(34, 30);
@@ -333,7 +347,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.License_Type_32;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(133, 291);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(34, 30);
@@ -343,7 +357,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.id_card__1_;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.Location = new System.Drawing.Point(133, 253);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(34, 30);
@@ -398,7 +412,7 @@
             // 
             // pbTestType
             // 
-            this.pbTestType.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Vision_512;
+            this.pbTestType.Image = ((System.Drawing.Image)(resources.GetObject("pbTestType.Image")));
             this.pbTestType.Location = new System.Drawing.Point(212, 22);
             this.pbTestType.Name = "pbTestType";
             this.pbTestType.Size = new System.Drawing.Size(253, 130);
@@ -417,43 +431,18 @@
             this.lblTitle.TabIndex = 82;
             this.lblTitle.Text = "Schedual Test";
             // 
-            // btnClose
+            // ctrScheduleTest
             // 
-            this.btnClose.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.close__1_;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(487, 770);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(176, 47);
-            this.btnClose.TabIndex = 104;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // frmSchedualTest
-            // 
-            this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.CancelButton = this.btnSave;
-            this.ClientSize = new System.Drawing.Size(675, 829);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "frmSchedualTest";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Schedual Test";
-            this.Load += new System.EventHandler(this.frmAddNewTestAppointment_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.gbRetakeExam.ResumeLayout(false);
-            this.gbRetakeExam.PerformLayout();
+            this.Controls.Add(this.gbScheduleTest);
+            this.Name = "ctrScheduleTest";
+            this.Size = new System.Drawing.Size(660, 703);
+            this.gbScheduleTest.ResumeLayout(false);
+            this.gbScheduleTest.PerformLayout();
+            this.gbRetakeTest.ResumeLayout(false);
+            this.gbRetakeTest.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -470,14 +459,26 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pbTestType;
-        private System.Windows.Forms.Label lblTitle;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox gbScheduleTest;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.GroupBox gbRetakeTest;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label lblRetakeTestID;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTotalFees;
+        private System.Windows.Forms.Label lblRetakeApplicationFees;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
+        private System.Windows.Forms.Label lblFees;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTrial;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Label lblDrivingLicenseClass;
-        private System.Windows.Forms.Label lblDrivingLicenseAppID;
+        private System.Windows.Forms.Label lblLocalDrivingLicenseAppID;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -488,21 +489,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblFees;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpAppointmentDate;
-        private System.Windows.Forms.GroupBox gbRetakeExam;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.Label lblRetakeTestID;
-        private System.Windows.Forms.Label lblTotalFees;
-        private System.Windows.Forms.Label lblRetakeApplicationFees;
+        private System.Windows.Forms.PictureBox pbTestType;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblUserMessage;
     }
 }

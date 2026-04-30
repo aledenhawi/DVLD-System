@@ -33,7 +33,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments
         private void _FullDataGridView() 
         {
 
-             _AppointmentsTestDataTable = clsTestAppointment.GetAllTestAppointmentsForLocalDrivingLicenseApplicationID(_LocalDrivingLicenseApplicationID,(int)_TestType);
+             _AppointmentsTestDataTable = clsTestAppointment.GetApplicatoinTestAppointmentsPerTestType(_LocalDrivingLicenseApplicationID,(int)_TestType);
 
             if (_AppointmentsTestDataTable.Rows.Count == 0) 
             {
@@ -101,23 +101,28 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments
 
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.Find(_LocalDrivingLicenseApplicationID);
-            if (!clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(LocalDrivingLicenseApplication.ApplicantPersonID, Convert.ToInt32(_TestType)))
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = clsLocalDrivingLicenseApplication.Find(_LocalDrivingLicenseApplicationID);
+
+            if (localDrivingLicenseApplication.IsThereAnActiveSchduledTest(_TestType))
             {
-                frmSchedualTest addNewTestAppointment = new frmSchedualTest(_LocalDrivingLicenseApplicationID, _TestType);
-                addNewTestAppointment.ShowDialog();
-                _FullDataGridView();
-            }
-            else
-            { 
-                MessageBox.Show("Person already has an active application for this test , You cannot add new appointment.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Person already have an active appointment for this test, You cannot add new appointment", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (localDrivingLicenseApplication.DoesPassedTestType(_TestType)) 
+            {
+                MessageBox.Show("Person already passed this test, You cannot add new appointment", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmSchedualTest addNewTestAppointment = new frmSchedualTest(_LocalDrivingLicenseApplicationID, _TestType);
+            addNewTestAppointment.ShowDialog();
+            _FullDataGridView();
         }
 
         private void tsEdit_Click(object sender, EventArgs e)
         {
-            frmSchedualTest schedualTest = new frmSchedualTest(_LocalDrivingLicenseApplicationID, _TestType, Convert.ToInt32(dgvTestAppointments.CurrentRow.Cells["TestAppointmentID"].Value));
+            frmSchedualTest schedualTest = new frmSchedualTest(_LocalDrivingLicenseApplicationID, _TestType, (int) dgvTestAppointments.CurrentRow.Cells["TestAppointmentID"].Value);
             schedualTest.ShowDialog();
             _FullDataGridView();
         }

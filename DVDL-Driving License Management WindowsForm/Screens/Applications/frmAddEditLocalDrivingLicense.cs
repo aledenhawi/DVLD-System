@@ -97,7 +97,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
             lblApplicationDate.Text = _LocalDrivingLicenseApplication.ApplicationDate.ToShortDateString();
             lblApplicationFees.Text = _LocalDrivingLicenseApplication.ApplicationTypeInfo.Fees.ToString();
             lblApplicationID.Text = _LocalDrivingLicenseApplication.ApplicationID.ToString();
-            cmbLicenseClasses.SelectedIndex = cmbLicenseClasses.FindString(_LocalDrivingLicenseApplication.LicenseClass.Name);
+            cmbLicenseClasses.SelectedIndex = cmbLicenseClasses.FindString(_LocalDrivingLicenseApplication.LicenseClassInfo.Name);
 
         }
 
@@ -179,11 +179,11 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
                 _LocalDrivingLicenseApplication.CreatedByUserID = clsGlobal.CurrentUser.ID;
             }
 
-            _LocalDrivingLicenseApplication.LicenseClass = clsLicenseClasses.Find(_LocalDrivingLicenseApplication.LicenseClassID);
+            _LocalDrivingLicenseApplication.LicenseClassInfo = clsLicenseClasses.Find(_LocalDrivingLicenseApplication.LicenseClassID);
 
-            if (Age < _LocalDrivingLicenseApplication.LicenseClass.MinAllowedAge)
+            if (Age < _LocalDrivingLicenseApplication.LicenseClassInfo.MinAllowedAge)
             {
-                MessageBox.Show($"The selected person does not meet the minimum age requirement for the selected license class. Minimum age is {_LocalDrivingLicenseApplication.LicenseClass.MinAllowedAge} years.", "Age Requirement Not Met", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"The selected person does not meet the minimum age requirement for the selected license class. Minimum age is {_LocalDrivingLicenseApplication.LicenseClassInfo.MinAllowedAge} years.", "Age Requirement Not Met", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

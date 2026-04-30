@@ -52,6 +52,8 @@
             // dgvTestAppointments
             // 
             this.dgvTestAppointments.AllowUserToAddRows = false;
+            this.dgvTestAppointments.AllowUserToDeleteRows = false;
+            this.dgvTestAppointments.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -92,14 +94,14 @@
             this.tsEdit,
             this.tsTakeTest});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 84);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 56);
             // 
             // tsEdit
             // 
             this.tsEdit.BackColor = System.Drawing.Color.DarkSlateGray;
             this.tsEdit.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.edit_32;
             this.tsEdit.Name = "tsEdit";
-            this.tsEdit.Size = new System.Drawing.Size(214, 26);
+            this.tsEdit.Size = new System.Drawing.Size(141, 26);
             this.tsEdit.Text = "Edit";
             this.tsEdit.Click += new System.EventHandler(this.tsEdit_Click);
             // 
@@ -108,7 +110,7 @@
             this.tsTakeTest.BackColor = System.Drawing.Color.DarkSlateGray;
             this.tsTakeTest.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Test_32;
             this.tsTakeTest.Name = "tsTakeTest";
-            this.tsTakeTest.Size = new System.Drawing.Size(214, 26);
+            this.tsTakeTest.Size = new System.Drawing.Size(141, 26);
             this.tsTakeTest.Text = "Take Test";
             // 
             // label8

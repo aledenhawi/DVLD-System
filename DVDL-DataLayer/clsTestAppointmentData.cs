@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,7 +58,7 @@ namespace DVDL_DataLayer
             return TestAppointmentID;
         }
 
-        public static bool GetTestAppointmentInfoByID(int ID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppoitmentDate, ref float PaidFees, ref int CreatedByUser, ref bool IsLocked)
+        public static bool GetTestAppointmentInfoByID(int ID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref float PaidFees, ref int CreatedByUserID, ref bool IsLocked,ref int RetakeTestApplicationID)
         {
             bool isFound = false;
 
@@ -77,10 +78,56 @@ namespace DVDL_DataLayer
                     {
                         TestTypeID = Convert.ToInt32(Reader["TestTypeID"]);
                         LocalDrivingLicenseApplicationID = Convert.ToInt32(Reader["LocalDrivingLicenseApplicationID"]);
-                        AppoitmentDate = Convert.ToDateTime(Reader["AppointmentDate"]);
+                        AppointmentDate = Convert.ToDateTime(Reader["AppointmentDate"]);
                         PaidFees = Convert.ToSingle(Reader["PaidFees"]);
-                        CreatedByUser = Convert.ToInt32(Reader["CreatedByUserID"]);
+                        CreatedByUserID = Convert.ToInt32(Reader["CreatedByUserID"]);
                         IsLocked = Convert.ToBoolean(Reader["IsLocked"]);
+
+                        RetakeTestApplicationID = Reader["RetakeTestApplicationID"] == DBNull.Value ? -1 : Convert.ToInt32(Reader["RetakeTestApplicationID"]);
+
+                        isFound = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return isFound;
+        }
+
+        public static bool GetLastTestAppointment(int LocalDrivingLicenseApplicationID ,int TestTypeID, ref int TestAppointmentID,ref DateTime AppointmentDate,ref float PaidFees,ref int CreatedByUserID,ref bool IsLocked,ref int RetakeTestApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string Query = @"select Top 1 * from TestAppointments 
+                             Where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID And TestTypeID = @TestTypeID
+                             Order By TestAppointmentID Desc;
+                             ";
+            SqlCommand command = new SqlCommand(Query, Connection);
+
+            command.Parameters.Add("@LocalDrivingLicenseApplicationID", SqlDbType.Int).Value = LocalDrivingLicenseApplicationID;
+            command.Parameters.Add("@TestTypeID", SqlDbType.Int).Value = TestTypeID;
+
+            try
+            {
+                Connection.Open();
+                using (SqlDataReader Reader = command.ExecuteReader())
+                {
+                    if (Reader.Read())
+                    {
+                        TestAppointmentID = Convert.ToInt32(Reader["TestAppointmentID"]);
+                        TestTypeID = Convert.ToInt32(Reader["TestTypeID"]);
+                        AppointmentDate = Convert.ToDateTime(Reader["AppointmentDate"]);
+                        PaidFees = Convert.ToSingle(Reader["PaidFees"]);
+                        CreatedByUserID = Convert.ToInt32(Reader["CreatedByUserID"]);
+                        IsLocked = Convert.ToBoolean(Reader["IsLocked"]);
+                        RetakeTestApplicationID = Reader["RetakeTestApplicationID"] == DBNull.Value ? -1 : Convert.ToInt32(Reader["RetakeTestApplicationID"]);
 
                         isFound = true;
                     }
@@ -142,37 +189,7 @@ namespace DVDL_DataLayer
             return (RowsAffected > 0);
         }
 
-        public static bool DeleteTestAppointment(int ID)
-        {
-            int RowsAffected = 0;
-
-            string Query = @"DELETE FROM TestAppointments 
-                     WHERE TestAppointmentID = @ID";
-
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            {
-                using (SqlCommand cmd = new SqlCommand(Query, connection))
-                {
-                    cmd.Parameters.Add("@ID", SqlDbType.Int).Value = ID;
-
-                    connection.Open();
-
-                    try
-                    {
-                        RowsAffected = cmd.ExecuteNonQuery();
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                }
-            }
-
-            return (RowsAffected > 0);
-        }
-
-        public static DataTable GetAllTestAppointmentsForLocalDrivingLicenseApplicationID(int LocalDrivingLicenseApplicationID,int TestType)
+        public static DataTable GetApplicatonTestAppointmentsPerTestTypeID(int LocalDrivingLicenseApplicationID,int TestType)
         {
             DataTable TestAppointmentDataTable = new DataTable();
 
@@ -203,29 +220,69 @@ namespace DVDL_DataLayer
             return TestAppointmentDataTable;
         }
 
-        public static bool IsTestAppointmentExists(int ID)
+        public static DataTable GetAllTestAppointments()
         {
-            string Query = "SELECT Count(TestAppointmetID) FROM TestAppointmets WHERE TestAppointmetID = @TestAppointmetID";
+            DataTable TestAppointmentDataTable = new DataTable();
+
+            string Query = @"SELECT TestAppointmentID,AppointmentDate,PaidFees,IsLocked FROM TestAppointments";
+
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand command = new SqlCommand(Query, connection))
                 {
-                    command.Parameters.Add("@TestAppointmetID", SqlDbType.Int).Value = ID;
                     try
                     {
                         connection.Open();
-                        object Result = command.ExecuteScalar();
-                        int count = Convert.ToInt32(Result);
-                        return count > 0;
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            TestAppointmentDataTable.Load(reader);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
-                        return false;
+
                     }
                 }
             }
+            return TestAppointmentDataTable;
         }
 
+        public static int GetTestID(int TestAppointmentID)
+        {
+            int TestID = -1;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string Query = @"Select TestID from Tests Where TestAppointmentID = @TestAppointmentID;";
+
+
+            SqlCommand command = new SqlCommand(Query, Connection);
+
+            command.Parameters.Add("@TestAppointmentID", SqlDbType.Int).Value = TestAppointmentID;
+
+
+            try
+            {
+                Connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int InsertedID))
+                {
+                    TestID = InsertedID;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return TestID;
+        }
     }
 }
