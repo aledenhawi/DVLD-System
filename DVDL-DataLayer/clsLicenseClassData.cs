@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DVDL_DataLayer
 {
-    public class clsLicenseClassesData
+    public class clsLicenseClassData
     {
 
         public static DataTable GetAllLicenseClasses()
@@ -43,7 +43,7 @@ namespace DVDL_DataLayer
             return LicenseClassesTable;
         }
 
-        public static bool GetLicenseClassInfoByID(int ID, ref string Name,ref string Description, ref int MinAllowedAge ,ref int MinValidityLength,ref float ClassFees)
+        public static bool GetLicenseClassInfoByID(int ID, ref string Name,ref string Description, ref int MinAllowedAge ,ref int DefaultValidityLength,ref float ClassFees)
         {
             bool isFound = false;
 
@@ -66,7 +66,7 @@ namespace DVDL_DataLayer
                     Name = Reader["ClassName"].ToString();
                     Description = Reader["ClassDescription"].ToString();
                     MinAllowedAge = Convert.ToInt32(Reader["MinimumAllowedAge"]);
-                    MinValidityLength = Convert.ToInt32(Reader["DefaultValidityLength"]);
+                    DefaultValidityLength = Convert.ToInt32(Reader["DefaultValidityLength"]);
                     ClassFees = Convert.ToSingle(Reader["ClassFees"]);
 
                     isFound = true;
@@ -87,7 +87,7 @@ namespace DVDL_DataLayer
             return isFound;
         }
 
-        public static bool GetLicenseClassInfoByName(string Name, ref int ID, ref string Description, ref int MinAllowedAge, ref int MinValidityLength, ref float ClassFees)
+        public static bool GetLicenseClassInfoByName(string Name, ref int ID, ref string Description, ref int MinAllowedAge, ref int DefaultValidityLength, ref float ClassFees)
         {
             bool isFound = false;
 
@@ -111,7 +111,7 @@ namespace DVDL_DataLayer
                     Name = Reader["ClassName"].ToString();
                     Description = Reader["ClassDescription"].ToString();
                     MinAllowedAge = Convert.ToInt32(Reader["MinimamAllowedAge"]);
-                    MinValidityLength = Convert.ToInt32(Reader["MinimumValidityLength"]);
+                    DefaultValidityLength = Convert.ToInt32(Reader["MinimumValidityLength"]);
                     ClassFees = Convert.ToSingle(Reader["ClassFees"]);
                     isFound = true;
                 }

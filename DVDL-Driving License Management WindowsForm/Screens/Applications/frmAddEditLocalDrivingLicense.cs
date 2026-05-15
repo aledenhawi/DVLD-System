@@ -39,7 +39,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
 
         private void _FullLicenseClassInCombobox()
         {
-            cmbLicenseClasses.DataSource = clsLicenseClasses.GetAllLicenseClasses();
+            cmbLicenseClasses.DataSource = clsLicenseClass.GetAllLicenseClasses();
             cmbLicenseClasses.DisplayMember = "ClassName";
             cmbLicenseClasses.ValueMember = "LicenseClassID";
         }
@@ -154,20 +154,22 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
         {
             short Age = clsPerson.Find(ctrPersonDetailsWithFilter1.PersonID).CalculateAge();
 
-
-
-            int ActiveApplicationID = clsApplication.GetActiveApplicationIDForLicenseClass(ctrPersonDetailsWithFilter1.PersonID, clsApplication.enApplicationType.NewLocalDrivingLicense, Convert.ToInt32(cmbLicenseClasses.SelectedValue));
-
-            if (ActiveApplicationID != -1)
+            if (clsApplication.DoesPersonHaveActiveApplication(ctrPersonDetailsWithFilter1.PersonID,clsApplication.enApplicationType.NewLocalDrivingLicense, Convert.ToInt32(cmbLicenseClasses.SelectedValue)))
             {
-                MessageBox.Show("The selected person already has an active application for the same license class.", "Duplicate Application", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The selected person already has an active application for the same license class.", "Duplicate Application", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close(); 
                 return;
             }
-            // Check (Add Checking if the person has a Driving license already)
 
+            if (clsLicense.IsLicenseIssued(ctrPersonDetailsWithFilter1.PersonID, Convert.ToInt32(cmbLicenseClasses.SelectedValue)))
+            {
+                MessageBox.Show("The selected person already has a license for the same license class.", "Duplicate License", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Close();
+                return;
+            }
 
-            _LocalDrivingLicenseApplication.LicenseClassID = Convert.ToInt32(cmbLicenseClasses.SelectedValue);
+                _LocalDrivingLicenseApplication.LicenseClassID = Convert.ToInt32(cmbLicenseClasses.SelectedValue);
+
             if (_Mode == enMode.Add)
             {
                 _LocalDrivingLicenseApplication.ApplicantPersonID = ctrPersonDetailsWithFilter1.PersonID;
@@ -179,7 +181,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
                 _LocalDrivingLicenseApplication.CreatedByUserID = clsGlobal.CurrentUser.ID;
             }
 
-            _LocalDrivingLicenseApplication.LicenseClassInfo = clsLicenseClasses.Find(_LocalDrivingLicenseApplication.LicenseClassID);
+            _LocalDrivingLicenseApplication.LicenseClassInfo = clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID);
 
             if (Age < _LocalDrivingLicenseApplication.LicenseClassInfo.MinAllowedAge)
             {

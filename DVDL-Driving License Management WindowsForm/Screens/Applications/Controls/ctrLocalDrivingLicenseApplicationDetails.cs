@@ -1,4 +1,5 @@
 ﻿using DVDL_BusinessLayer;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Licenses.Local_Licenses;
 using DVDL_Driving_License_Management_WindowsForm.Screens.PeopleScreens;
 using System;
 using System.Collections.Generic;
@@ -54,20 +55,22 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Contr
 
         private void _FillLocalDrivingLicenseApplicationInfo() 
         {
-            // Check it add here function to get LicenseID 
+
+            _LicenseID = _LocalDrivingLicenseApplicationInfo.GetActiveLicenseID();
             linkLabel1.Enabled = ( _LicenseID !=-1);
 
-             lblDLApplicationID.Text = _LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID.ToString();
-             lblPassedTest.Text = "3/" + _LocalDrivingLicenseApplicationInfo.GetPassedTestCount().ToString();
-             lblAppliedForLicense.Text = _LocalDrivingLicenseApplicationInfo.LicenseClassInfo.Name;
-             lblID.Text = _LocalDrivingLicenseApplicationInfo.ApplicationID.ToString();
-             lblApplicant.Text = _LocalDrivingLicenseApplicationInfo.PersonInfo.GetFullName();
-             lblCreatedBy.Text = _LocalDrivingLicenseApplicationInfo.CreatedByUserInfo.Username.ToString();
-             lblDate.Text = _LocalDrivingLicenseApplicationInfo.ApplicationDate.ToShortDateString();
-             lblStatusDate.Text = _LocalDrivingLicenseApplicationInfo.LastStatusDate.ToShortDateString();
-             lblType.Text = _LocalDrivingLicenseApplicationInfo.ApplicationTypeInfo.Title;
-             lblStatus.Text = _LocalDrivingLicenseApplicationInfo.ApplicationStatus.ToString();
-             lblFees.Text = _LocalDrivingLicenseApplicationInfo.PaidFees.ToString();
+            linkLabel1.LinkColor = linkLabel1.Enabled ? Color.DarkBlue : Color.Brown;
+            lblDLApplicationID.Text = _LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID.ToString();
+            lblPassedTest.Text = "3/" + _LocalDrivingLicenseApplicationInfo.GetPassedTestCount().ToString();
+            lblAppliedForLicense.Text = _LocalDrivingLicenseApplicationInfo.LicenseClassInfo.Name;
+            lblID.Text = _LocalDrivingLicenseApplicationInfo.ApplicationID.ToString();
+            lblApplicant.Text = _LocalDrivingLicenseApplicationInfo.PersonInfo.GetFullName();
+            lblCreatedBy.Text = _LocalDrivingLicenseApplicationInfo.CreatedByUserInfo.Username.ToString();
+            lblDate.Text = _LocalDrivingLicenseApplicationInfo.ApplicationDate.ToShortDateString();
+            lblStatusDate.Text = _LocalDrivingLicenseApplicationInfo.LastStatusDate.ToShortDateString();
+            lblType.Text = _LocalDrivingLicenseApplicationInfo.ApplicationTypeInfo.Title;
+            lblStatus.Text = _LocalDrivingLicenseApplicationInfo.ApplicationStatus.ToString();
+            lblFees.Text = _LocalDrivingLicenseApplicationInfo.PaidFees.ToString();
         }
 
         public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivinglicenseAppID) 
@@ -95,6 +98,10 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Contr
             frm.ShowDialog();
         }
 
-       
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmLicenseInfo licenseInfo = new frmLicenseInfo(_LicenseID);
+            licenseInfo.ShowDialog();
+        }
     }
 }

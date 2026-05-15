@@ -104,7 +104,7 @@ namespace DVDL_DataLayer
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

@@ -243,6 +243,11 @@ namespace DVDL_DataLayer
             return (GetActiveApplicationID(ApplicantPersonID, ApplicationTypeID) != -1);
         }
 
+        public static bool DoesPersonHasActiveApplicationForLicenseClass(int ApplicantPersonID,int ApplicationTypeID, int LicenseClassID)
+        {
+            return (GetActiveApplicationIDForLicenseClass(ApplicantPersonID,ApplicationTypeID, LicenseClassID) != -1);
+        }
+
         public static bool IsApplicationExists(int ApplicationID)
         {
             string Query = "SELECT Count(*) FROM Applications WHERE ApplicationID = @ApplicationID";

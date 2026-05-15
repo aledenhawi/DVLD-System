@@ -242,7 +242,7 @@
             this.visionTestToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateGray;
             this.visionTestToolStripMenuItem.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Vision_Test_32;
             this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
-            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(254, 46);
+            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(215, 46);
             this.visionTestToolStripMenuItem.Text = "Vision Test";
             this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             this.writtenTestToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateGray;
             this.writtenTestToolStripMenuItem.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Written_Test_32_Sechdule;
             this.writtenTestToolStripMenuItem.Name = "writtenTestToolStripMenuItem";
-            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(254, 46);
+            this.writtenTestToolStripMenuItem.Size = new System.Drawing.Size(215, 46);
             this.writtenTestToolStripMenuItem.Text = "Written Test";
             this.writtenTestToolStripMenuItem.Click += new System.EventHandler(this.writtenTestToolStripMenuItem_Click);
             // 
@@ -260,7 +260,7 @@
             this.streetTestToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateGray;
             this.streetTestToolStripMenuItem.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Street_Test_32;
             this.streetTestToolStripMenuItem.Name = "streetTestToolStripMenuItem";
-            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(254, 46);
+            this.streetTestToolStripMenuItem.Size = new System.Drawing.Size(215, 46);
             this.streetTestToolStripMenuItem.Text = "Street Test";
             this.streetTestToolStripMenuItem.Click += new System.EventHandler(this.streetTestToolStripMenuItem_Click);
             // 
@@ -288,7 +288,7 @@
             this.tsShowLicense.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.License_View_321;
             this.tsShowLicense.Name = "tsShowLicense";
             this.tsShowLicense.Size = new System.Drawing.Size(364, 46);
-            this.tsShowLicense.Text = "Show License";
+            this.tsShowLicense.Text = "Show License Info";
             this.tsShowLicense.Click += new System.EventHandler(this.tsShowLicense_Click);
             // 
             // Separeotr

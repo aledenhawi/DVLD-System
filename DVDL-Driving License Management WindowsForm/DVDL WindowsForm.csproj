@@ -36,6 +36,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DVDL-Driving License Management WindowsForm">
+      <HintPath>obj\Debug\DVDL-Driving License Management WindowsForm.exe</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
@@ -100,6 +103,30 @@
     </Compile>
     <Compile Include="Screens\Applications\frmLocalDrvingLicenseApplicationDetails.Designer.cs">
       <DependentUpon>frmLocalDrvingLicenseApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfo.Designer.cs">
+      <DependentUpon>ctrLicenseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrLicenseInfoWithFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\frmIssueDrivingLicenseForTheFirstTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\frmIssueDrivingLicenseForTheFirstTime.Designer.cs">
+      <DependentUpon>frmIssueDrivingLicenseForTheFirstTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\frmLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\Licenses\Local Licenses\frmLicenseInfo.Designer.cs">
+      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\Login\frmLogin.cs">
       <SubType>Form</SubType>
@@ -250,6 +277,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Applications\frmLocalDrvingLicenseApplicationDetails.resx">
       <DependentUpon>frmLocalDrvingLicenseApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfo.resx">
+      <DependentUpon>ctrLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Licenses\Local Licenses\Controls\ctrLicenseInfoWithFilter.resx">
+      <DependentUpon>ctrLicenseInfoWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Licenses\Local Licenses\frmIssueDrivingLicenseForTheFirstTime.resx">
+      <DependentUpon>frmIssueDrivingLicenseForTheFirstTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\Licenses\Local Licenses\frmLicenseInfo.resx">
+      <DependentUpon>frmLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -496,6 +535,9 @@
     <None Include="Resources\Written Test 32 Sechdule.png" />
     <None Include="Resources\Street Test 32.png" />
     <None Include="Resources\Test 32.png" />
+    <None Include="Resources\Retake Test 32.png" />
+    <None Include="Resources\Notes 32.png" />
+    <None Include="Resources\LicenseView 400.png" />
     <Content Include="Screens\Login\LogFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

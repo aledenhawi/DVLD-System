@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsApplicationTypeData.cs" />
+    <Compile Include="clsDriverData.cs" />
+    <Compile Include="clsLicenseData.cs" />
     <Compile Include="clsTestAppointmentData.cs" />
     <Compile Include="clsCountryData.cs" />
     <Compile Include="clsApplicationData.cs" />
-    <Compile Include="clsLicenseClassesData.cs" />
+    <Compile Include="clsLicenseClassData.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationData.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />

@@ -145,7 +145,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments.U
             
             if(_TestAppointment.RetakeTestApplicationID != -1)
             {
-                lblRetakeTestID.Text = _TestAppointment.RetakeTestApplication.PaidFees.ToString();
+                lblRetakeTestID.Text = _TestAppointment.RetakeTestApplication.ApplicationID.ToString();
                 lblRetakeApplicationFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.RetakeTest).Fees.ToString();
                 gbRetakeTest.Enabled = true;
                 lblTotalFees.Text = (_TestAppointment.PaidFees + _TestAppointment.RetakeTestApplication.PaidFees).ToString();

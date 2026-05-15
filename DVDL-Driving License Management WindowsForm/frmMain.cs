@@ -98,5 +98,12 @@ namespace DVDL_Driving_License_Management_WindowsForm
             frmTestTypesManagment.MdiParent = this;
             frmTestTypesManagment.Show();
         }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalDrivingLicenseApplications localDrivingLicenseApplications = new frmLocalDrivingLicenseApplications();
+            localDrivingLicenseApplications.MdiParent = this;
+            localDrivingLicenseApplications.Show();
+        }
     }
 }

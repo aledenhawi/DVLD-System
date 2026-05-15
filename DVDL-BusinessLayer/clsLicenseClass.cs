@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DVDL_BusinessLayer
 {
-    public class clsLicenseClasses
+    public class clsLicenseClass
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -18,37 +18,36 @@ namespace DVDL_BusinessLayer
 
         public int MinAllowedAge { get; set; }
 
-        public int MinValidityLength { get; set; }
+        public int DefualtValidityLength { get; set; }
 
         public float Fees { get; set; }
 
-
-        public clsLicenseClasses() 
+        public clsLicenseClass() 
         {
             ID = -1;
             Name = string.Empty;
             Description = string.Empty;
             MinAllowedAge = 0;
-            MinValidityLength = 0;
+            DefualtValidityLength = 0;
             Fees = 0f;
         }
 
-        private clsLicenseClasses(int ID, string Name,string Description ,int MinAllowedAge,int MinValidityLength,float Fees)
+        private clsLicenseClass(int ID, string Name,string Description ,int MinAllowedAge,int DefualtValidityLength,float Fees)
         {
             this.ID = ID;
             this.Name = Name;
             this.Description = Description;
             this.MinAllowedAge = MinAllowedAge;
-            this.MinValidityLength = MinValidityLength;
+            this.DefualtValidityLength = DefualtValidityLength;
             this.Fees = Fees;
         }
 
         public static DataTable GetAllLicenseClasses()
         {
-            return clsLicenseClassesData.GetAllLicenseClasses();
+            return clsLicenseClassData.GetAllLicenseClasses();
         }
 
-        public static clsLicenseClasses Find(int ID)
+        public static clsLicenseClass Find(int ID)
         {
             string Name = string.Empty;
             string Description = string.Empty;
@@ -56,16 +55,16 @@ namespace DVDL_BusinessLayer
             int MinValidityLength = 0;
             float Fees = 0f;
 
-            bool Isfound = clsLicenseClassesData.GetLicenseClassInfoByID(ID,ref Name , ref Description, ref MinAllowedAge, ref MinValidityLength , ref Fees);
+            bool Isfound = clsLicenseClassData.GetLicenseClassInfoByID(ID,ref Name , ref Description, ref MinAllowedAge, ref MinValidityLength , ref Fees);
 
             if (Isfound)
             {
-                return new clsLicenseClasses(ID, Name,Description,MinAllowedAge,MinValidityLength,Fees);
+                return new clsLicenseClass(ID, Name,Description,MinAllowedAge,MinValidityLength,Fees);
             }
             return null;
         }
 
-        public static clsLicenseClasses Find(string Name)
+        public static clsLicenseClass Find(string Name)
         {
             int ID = -1;
             string Description = string.Empty;
@@ -73,13 +72,14 @@ namespace DVDL_BusinessLayer
             int MinValidityLength = 0;
             float Fees = 0f;
 
-            bool Isfound = clsLicenseClassesData.GetLicenseClassInfoByName( Name,ref ID, ref Description, ref MinAllowedAge, ref MinValidityLength, ref Fees);
+            bool Isfound = clsLicenseClassData.GetLicenseClassInfoByName( Name,ref ID, ref Description, ref MinAllowedAge, ref MinValidityLength, ref Fees);
 
             if (Isfound)
             {
-                return new clsLicenseClasses(ID, Name, Description, MinAllowedAge, MinValidityLength, Fees);
+                return new clsLicenseClass(ID, Name, Description, MinAllowedAge, MinValidityLength, Fees);
             }
             return null;
         }
+
     }
 }

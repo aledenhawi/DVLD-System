@@ -1,4 +1,5 @@
 ﻿using DVDL_BusinessLayer;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Licenses.Local_Licenses;
 using DVDL_Driving_License_Management_WindowsForm.Screens.TestAppointments;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
         {
             LocalDrivingLicenseDataTable = clsLocalDrivingLicenseApplication.GetAllLocalDrivingLicenseApplications();
             dgvLocalDrivingLicenseApplicationsList.DataSource = LocalDrivingLicenseDataTable;
-
+            cmbLDLApplicationsFiltring.SelectedIndex = 0;
 
             lblTotalRecords.Text = dgvLocalDrivingLicenseApplicationsList.Rows.Count.ToString();
 
@@ -211,37 +212,58 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications
             byte totalPassedTests = localDrivingLicenseApplication.GetPassedTestCount();
 
 
-            // check it later
-            bool LicenseIssued = totalPassedTests == 3;
+            bool LicenseIssued = localDrivingLicenseApplication.IsLicenseIssued();
 
 
-            tsDeleteApplication.Enabled = !LicenseIssued;
-            tsShowPersonLicenseHistroy.Enabled = LicenseIssued;
+            tsDeleteApplication.Enabled = (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
             tsShowLicense.Enabled = LicenseIssued;
 
-            tsCancleApplication.Enabled = (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
+            tsCancleApplication.Enabled = (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New) && !LicenseIssued;
 
             tsEditApplication.Enabled = !LicenseIssued && (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
             tsIssueDrivingLicense.Enabled = !LicenseIssued && (totalPassedTests == 3);
             tsSechduleTest.Enabled = !LicenseIssued;
 
-            visionTestToolStripMenuItem.Enabled = (totalPassedTests == 0) && (localDrivingLicenseApplication.ApplicationStatus == clsApplication.enApplicationStatus.New);
-            writtenTestToolStripMenuItem.Enabled = (totalPassedTests == 1);
-            streetTestToolStripMenuItem.Enabled = (totalPassedTests == 2);
+            bool VisionTestPassed = localDrivingLicenseApplication.DoesPassedTestType(clsTestType.enTestType.Vision);
+            bool WrittenTestPassed = localDrivingLicenseApplication.DoesPassedTestType(clsTestType.enTestType.Written);
+            bool StreetTestPassed = localDrivingLicenseApplication.DoesPassedTestType(clsTestType.enTestType.Street);
+
+            if (tsSechduleTest.Enabled) 
+            {
+                visionTestToolStripMenuItem.Enabled = !VisionTestPassed;
+                writtenTestToolStripMenuItem.Enabled = VisionTestPassed && !WrittenTestPassed;
+                streetTestToolStripMenuItem.Enabled =  VisionTestPassed && WrittenTestPassed && !StreetTestPassed;
+            }
 
 
-            // Check it Later if (tsScechduleTestMenu == true) then check before it wich stage he is in and in if body enable or disable the menu items
 
         }
 
         private void tsIssueDrivingLicense_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            frmIssueDrivingLicenseForTheFirstTime issueDrivingLicenseForTheFirstTime = new frmIssueDrivingLicenseForTheFirstTime((int)dgvLocalDrivingLicenseApplicationsList.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+            issueDrivingLicenseForTheFirstTime.ShowDialog();
+            frmLocalDrivingLicenseApplications_Load(null, null);
         }
 
         private void tsShowLicense_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This feature is not implemented yet.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            int LocalDrivingLicenseApplicationID = (int)dgvLocalDrivingLicenseApplicationsList.CurrentRow.Cells[0].Value;
+
+            int LicenseID = clsLocalDrivingLicenseApplication.Find(
+               LocalDrivingLicenseApplicationID).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmLicenseInfo frm = new frmLicenseInfo(LicenseID);
+                frm.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void tsShowPersonLicenseHistroy_Click(object sender, EventArgs e)

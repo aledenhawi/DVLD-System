@@ -125,6 +125,11 @@ namespace DVDL_BusinessLayer
         {
             return clsApplicationData.UpdateStatus(ApplicationID, Convert.ToInt16(enApplicationStatus.Completed));
         }
+        
+        public bool SetComplete()
+        {
+            return clsApplicationData.UpdateStatus(ApplicationID, Convert.ToInt16(enApplicationStatus.Completed));
+        }
 
         public static clsApplication FindBaseApplication(int ApplicationID)
         {
@@ -161,9 +166,9 @@ namespace DVDL_BusinessLayer
             return clsApplicationData.DoesPersonHasActiveApplication(PersonID, ApplicationTypeID);
         }
 
-        public static bool DoesPersonHaveActiveApplication(int PersonID, int ApplicationTypeID,int LicenseClassID)
+        public static bool DoesPersonHaveActiveApplication(int PersonID, enApplicationType ApplicationTypeID,int LicenseClassID)
         {
-            return clsLocalDrivingLicenseApplication.DoesPersonHaveActiveApplication(PersonID, ApplicationTypeID,LicenseClassID);
+            return clsApplicationData.DoesPersonHasActiveApplicationForLicenseClass(PersonID, Convert.ToInt32(ApplicationTypeID),LicenseClassID);
         }
 
         public bool DoesPersonHaveActiveApplication(int ApplicationTypeID)
