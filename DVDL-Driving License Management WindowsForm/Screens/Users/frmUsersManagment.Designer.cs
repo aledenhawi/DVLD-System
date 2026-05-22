@@ -47,9 +47,9 @@
             this.cmbIsActive = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTotalUsers = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnAddNewUser = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -180,6 +180,7 @@
             this.cmbUsersFiltring.Name = "cmbUsersFiltring";
             this.cmbUsersFiltring.Size = new System.Drawing.Size(182, 29);
             this.cmbUsersFiltring.TabIndex = 7;
+            this.cmbUsersFiltring.SelectedIndexChanged += new System.EventHandler(this.cmbUsersFiltring_SelectedIndexChanged);
             this.cmbUsersFiltring.SelectedValueChanged += new System.EventHandler(this.cmbUsersFiltring_SelectedIndexChanged);
             // 
             // label2
@@ -249,6 +250,22 @@
             this.lblTotalUsers.TabIndex = 11;
             this.lblTotalUsers.Text = "0";
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnClose.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.close__1_;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(724, 765);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(203, 49);
+            this.btnClose.TabIndex = 78;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // btnAddNewUser
             // 
             this.btnAddNewUser.BackgroundImage = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.add_user;
@@ -273,22 +290,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.DarkCyan;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnClose.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.close__1_;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(724, 765);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(203, 49);
-            this.btnClose.TabIndex = 78;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmUsersManagment
             // 

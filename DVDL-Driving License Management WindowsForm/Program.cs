@@ -1,6 +1,7 @@
 ﻿using DVDL_BusinessLayer;
 using DVDL_Driving_License_Management_WindowsForm.Screens;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Applications;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Release_License;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Basic;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Licenses.International_Licenses;
 using DVDL_Driving_License_Management_WindowsForm.Screens.PeopleScreens;

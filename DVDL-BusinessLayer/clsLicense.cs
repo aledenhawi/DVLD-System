@@ -289,7 +289,7 @@ namespace DVDL_BusinessLayer
             detainedLicense.FineFees = FineFees;
             detainedLicense.DetainDate = DateTime.Now;
 
-            if (detainedLicense.Save()) 
+            if (!detainedLicense.Save()) 
             {
                 return -1;
             }

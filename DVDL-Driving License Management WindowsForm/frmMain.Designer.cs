@@ -36,10 +36,16 @@
             this.tsIssueNewInternationalLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.tsRenewDrivingLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsReplacementforlostordamaged = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.retakeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsDrivingLicensesServices = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsInternationalDrivingLicenseList = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsDetainLicense1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsManageDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsDetainLicense = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsReleaseDetainedLicense = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +56,6 @@
             this.tsCurrentUserInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.tsSingOut = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsReplacementforlostordamaged = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +84,7 @@
             this.toolStripMenuItem5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.tsDrivingLicensesServices,
+            this.tsDetainLicense1,
             this.toolStripMenuItem6,
             this.toolStripMenuItem3});
             this.toolStripMenuItem5.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -104,7 +109,7 @@
             this.toolStripMenuItem4.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Driver_License_48;
             this.toolStripMenuItem4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(338, 54);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(355, 70);
             this.toolStripMenuItem4.Text = "Driving Licenses Services";
             // 
             // toolStripMenuItem7
@@ -163,6 +168,24 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(373, 6);
             // 
+            // tsReplacementforlostordamaged
+            // 
+            this.tsReplacementforlostordamaged.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tsReplacementforlostordamaged.ForeColor = System.Drawing.Color.SlateGray;
+            this.tsReplacementforlostordamaged.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Retake_Test_32;
+            this.tsReplacementforlostordamaged.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsReplacementforlostordamaged.Name = "tsReplacementforlostordamaged";
+            this.tsReplacementforlostordamaged.Size = new System.Drawing.Size(376, 38);
+            this.tsReplacementforlostordamaged.Text = "Repleacment for Lost or Damaged";
+            this.tsReplacementforlostordamaged.Click += new System.EventHandler(this.tsReplacementforlostordamaged_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripSeparator2.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(373, 6);
+            // 
             // retakeTestToolStripMenuItem
             // 
             this.retakeTestToolStripMenuItem.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -182,10 +205,10 @@
             this.tsInternationalDrivingLicenseList});
             this.tsDrivingLicensesServices.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tsDrivingLicensesServices.ForeColor = System.Drawing.Color.SlateGray;
-            this.tsDrivingLicensesServices.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Manage_Applications_321;
+            this.tsDrivingLicensesServices.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Manage_Applications_64;
             this.tsDrivingLicensesServices.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsDrivingLicensesServices.Name = "tsDrivingLicensesServices";
-            this.tsDrivingLicensesServices.Size = new System.Drawing.Size(338, 54);
+            this.tsDrivingLicensesServices.Size = new System.Drawing.Size(355, 70);
             this.tsDrivingLicensesServices.Text = "Manage Applications";
             // 
             // toolStripMenuItem8
@@ -212,15 +235,66 @@
             this.tsInternationalDrivingLicenseList.Text = "International Driving License";
             this.tsInternationalDrivingLicenseList.Click += new System.EventHandler(this.tsInternationalDrivingLicenseList_Click);
             // 
+            // tsDetainLicense1
+            // 
+            this.tsDetainLicense1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tsDetainLicense1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsManageDetainLicense,
+            this.tsDetainLicense,
+            this.tsReleaseDetainedLicense});
+            this.tsDetainLicense1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsDetainLicense1.ForeColor = System.Drawing.Color.SlateGray;
+            this.tsDetainLicense1.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Detain_64;
+            this.tsDetainLicense1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsDetainLicense1.Name = "tsDetainLicense1";
+            this.tsDetainLicense1.Size = new System.Drawing.Size(355, 70);
+            this.tsDetainLicense1.Text = "Detain Licenses";
+            // 
+            // tsManageDetainLicense
+            // 
+            this.tsManageDetainLicense.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tsManageDetainLicense.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.tsManageDetainLicense.ForeColor = System.Drawing.Color.SlateGray;
+            this.tsManageDetainLicense.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Detain_32;
+            this.tsManageDetainLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsManageDetainLicense.Name = "tsManageDetainLicense";
+            this.tsManageDetainLicense.Size = new System.Drawing.Size(283, 38);
+            this.tsManageDetainLicense.Text = "Manage Detained License";
+            this.tsManageDetainLicense.Click += new System.EventHandler(this.tsManageDetainLicense_Click);
+            // 
+            // tsDetainLicense
+            // 
+            this.tsDetainLicense.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tsDetainLicense.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.tsDetainLicense.ForeColor = System.Drawing.Color.SlateGray;
+            this.tsDetainLicense.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Detain_32;
+            this.tsDetainLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsDetainLicense.Name = "tsDetainLicense";
+            this.tsDetainLicense.Size = new System.Drawing.Size(283, 38);
+            this.tsDetainLicense.Text = "Detain License";
+            this.tsDetainLicense.Click += new System.EventHandler(this.tsDetainLicense_Click);
+            // 
+            // tsReleaseDetainedLicense
+            // 
+            this.tsReleaseDetainedLicense.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.tsReleaseDetainedLicense.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.tsReleaseDetainedLicense.ForeColor = System.Drawing.Color.SlateGray;
+            this.tsReleaseDetainedLicense.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Release_Detained_License_32;
+            this.tsReleaseDetainedLicense.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsReleaseDetainedLicense.Name = "tsReleaseDetainedLicense";
+            this.tsReleaseDetainedLicense.Size = new System.Drawing.Size(283, 38);
+            this.tsReleaseDetainedLicense.Text = "Release Detained License";
+            this.tsReleaseDetainedLicense.Click += new System.EventHandler(this.tsReleaseDetainedLicense_Click);
+            // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.BackColor = System.Drawing.Color.DarkSlateGray;
             this.toolStripMenuItem6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem6.ForeColor = System.Drawing.Color.SlateGray;
-            this.toolStripMenuItem6.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Manage_Applications_32;
+            this.toolStripMenuItem6.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Application_Types_64;
             this.toolStripMenuItem6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(338, 54);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(355, 70);
             this.toolStripMenuItem6.Text = "Manage Application Types";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.tsManageApplicationTypes_Click);
             // 
@@ -229,10 +303,10 @@
             this.toolStripMenuItem3.BackColor = System.Drawing.Color.DarkSlateGray;
             this.toolStripMenuItem3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem3.ForeColor = System.Drawing.Color.SlateGray;
-            this.toolStripMenuItem3.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.ManageTestTypes;
+            this.toolStripMenuItem3.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Test_Type_64;
             this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(338, 54);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(355, 70);
             this.toolStripMenuItem3.Text = "Manage Test Types";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
@@ -323,24 +397,6 @@
             this.tsSingOut.Text = "Sing Out";
             this.tsSingOut.Click += new System.EventHandler(this.tsSingOut_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripSeparator2.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(373, 6);
-            // 
-            // tsReplacementforlostordamaged
-            // 
-            this.tsReplacementforlostordamaged.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.tsReplacementforlostordamaged.ForeColor = System.Drawing.Color.SlateGray;
-            this.tsReplacementforlostordamaged.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Retake_Test_32;
-            this.tsReplacementforlostordamaged.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsReplacementforlostordamaged.Name = "tsReplacementforlostordamaged";
-            this.tsReplacementforlostordamaged.Size = new System.Drawing.Size(376, 38);
-            this.tsReplacementforlostordamaged.Text = "Repleacment for Lost or Damaged";
-            this.tsReplacementforlostordamaged.Click += new System.EventHandler(this.tsReplacementforlostordamaged_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -393,6 +449,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tsReplacementforlostordamaged;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem tsDetainLicense1;
+        private System.Windows.Forms.ToolStripMenuItem tsManageDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsDetainLicense;
+        private System.Windows.Forms.ToolStripMenuItem tsReleaseDetainedLicense;
     }
 }
 

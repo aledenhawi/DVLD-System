@@ -36,7 +36,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Reple
 
         private void btnIssueRepleacment_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to repleace this License?", "Confirm repleacing", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Are you sure you want to repleace this license?", "Confirm repleacing", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }

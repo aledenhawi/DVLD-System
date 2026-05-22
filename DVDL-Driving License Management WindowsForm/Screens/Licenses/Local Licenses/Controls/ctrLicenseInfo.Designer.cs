@@ -159,7 +159,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(16, 299);
+            this.label7.Location = new System.Drawing.Point(16, 347);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(158, 24);
             this.label7.TabIndex = 7;
@@ -169,7 +169,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(16, 342);
+            this.label8.Location = new System.Drawing.Point(17, 300);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 24);
             this.label8.TabIndex = 8;
@@ -236,7 +236,7 @@
             // pictureBox9
             // 
             this.pictureBox9.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Notes_32;
-            this.pictureBox9.Location = new System.Drawing.Point(197, 342);
+            this.pictureBox9.Location = new System.Drawing.Point(198, 300);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(38, 34);
             this.pictureBox9.TabIndex = 16;
@@ -245,7 +245,7 @@
             // pictureBox10
             // 
             this.pictureBox10.Image = global::DVDL_Driving_License_Management_WindowsForm.Properties.Resources.Notes_32;
-            this.pictureBox10.Location = new System.Drawing.Point(197, 299);
+            this.pictureBox10.Location = new System.Drawing.Point(197, 347);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(38, 34);
             this.pictureBox10.TabIndex = 15;
@@ -414,7 +414,7 @@
             // 
             this.lblIssueReason.AutoSize = true;
             this.lblIssueReason.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblIssueReason.Location = new System.Drawing.Point(262, 299);
+            this.lblIssueReason.Location = new System.Drawing.Point(262, 347);
             this.lblIssueReason.Name = "lblIssueReason";
             this.lblIssueReason.Size = new System.Drawing.Size(53, 24);
             this.lblIssueReason.TabIndex = 33;
@@ -424,7 +424,7 @@
             // 
             this.lblNotes.AutoSize = true;
             this.lblNotes.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblNotes.Location = new System.Drawing.Point(262, 342);
+            this.lblNotes.Location = new System.Drawing.Point(263, 300);
             this.lblNotes.Name = "lblNotes";
             this.lblNotes.Size = new System.Drawing.Size(53, 24);
             this.lblNotes.TabIndex = 34;

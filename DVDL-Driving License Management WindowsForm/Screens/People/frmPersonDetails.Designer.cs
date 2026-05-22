@@ -76,7 +76,9 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrPersonDetails1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmPersonDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPersonDetails";
             this.ResumeLayout(false);
             this.PerformLayout();

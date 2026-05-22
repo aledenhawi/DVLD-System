@@ -14,7 +14,6 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Contr
 {
     public partial class ctrInternationalLicenseApplicartionDetails : UserControl
     {
-        private int _InternationalLicenseID;
 
         private int _LocalLicenseID;
 

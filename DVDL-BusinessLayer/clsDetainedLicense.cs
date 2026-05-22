@@ -21,6 +21,8 @@ namespace DVDL_BusinessLayer
 
         public int CreatedByUserID { get; set; }
 
+        public clsUser CreatedByUserInfo { get { return clsUser.Find(CreatedByUserID); } }
+
         public bool IsReleased { get; set; }
 
         public DateTime ReleaseDate { get; set; }
@@ -147,7 +149,7 @@ namespace DVDL_BusinessLayer
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
 
-        public DataTable GetAllDetainedLicense() { return clsDetainedLicenseData.GetAllDetainedLicenses(); }
+        public static DataTable GetAllDetainedLicense() { return clsDetainedLicenseData.GetAllDetainedLicenses(); }
 
     }
 }

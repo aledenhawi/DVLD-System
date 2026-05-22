@@ -1,6 +1,7 @@
 ﻿using DVDL_Driving_License_Management_WindowsForm.Screens;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Applications;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Internatinoal_License;
+using DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Release_License;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Applications.Repleacment_Application;
 using DVDL_Driving_License_Management_WindowsForm.Screens.ApplicationsType;
 using DVDL_Driving_License_Management_WindowsForm.Screens.Basic;
@@ -142,6 +143,25 @@ namespace DVDL_Driving_License_Management_WindowsForm
         {
             frmReplacmentApplication replacmentApplication = new frmReplacmentApplication();
             replacmentApplication.ShowDialog();
+        }
+
+        private void tsDetainLicense_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense detainLicense = new frmDetainLicense();
+            detainLicense.ShowDialog();
+        }
+
+        private void tsReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+            frm.ShowDialog();
+        }
+
+        private void tsManageDetainLicense_Click(object sender, EventArgs e)
+        {
+            frmManageDetainedLicenses frm = new frmManageDetainedLicenses();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }
