@@ -25,23 +25,23 @@ Here is a look at the core forms and interfaces of the system:
 
 ### 1. Login Screen
 *Secure entry point for system administrators and employees.*
-![Login Screen](Images/Login Screen.png)
+![Login Screen](Images/LoginScreen.png)
 
 ### 2. Manage People Dashboard
 *Comprehensive grid view to easily filter, add, and manage registered individuals.*
-![Manage People](Images/Manage People.png)
+![Manage People](Images/ManagePeople.png)
 
 ### 3. Driving License Applications
 *Track the status of applications, schedule tests via context menus, and issue final licenses.*
-![Applications](Images/Local Driving License Applications Managment.png)
+![Applications](Images/LocalDrivingLicenseApplicationsManagment.png)
 
 ### 4. Driving Licenses History
 *A detailed profile view showing all active and historical licenses for a driver.*
-![License History](Images/Person Licenses History.png)
+![License History](Images/PersonLicensesHistory.png)
 
 ### 5. Manage Detained Licenses
 *System to track confiscated licenses, view fine amounts, and manage the release process.*
-![Detained Licenses](Images/Detained Licenses Mangment.png)
+![Detained Licenses](Images/DetainedLicensesMangment.png)
 
 ## 🚀 How to Run the Project
 1. Clone the repository: 
