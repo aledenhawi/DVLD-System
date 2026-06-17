@@ -660,7 +660,6 @@
     <None Include="Resources\Detain 512.png" />
     <None Include="Resources\Detain 642.png" />
     <None Include="Resources\Release Detained License 64.png" />
-    <Content Include="Screens\Login\LogFile.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

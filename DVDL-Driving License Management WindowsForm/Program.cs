@@ -26,7 +26,6 @@ namespace DVDL_Driving_License_Management_WindowsForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmTEst());
             Application.Run(new frmLogin());
         }
     }

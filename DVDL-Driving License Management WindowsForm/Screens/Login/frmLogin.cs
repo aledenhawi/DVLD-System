@@ -67,13 +67,13 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Basic
                     if (User.IsActive == true)
                         clsGlobal.CurrentUser = User;
                     else
-                        MessageBox.Show("Invalid Password/Username .", "Wrong Credintial", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("User Is not Active .", "Not Active", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
 
-                MessageBox.Show("Invalid Password/Username .", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid Password/Username .", "Wrong Credintial", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

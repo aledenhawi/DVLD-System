@@ -6,6 +6,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using Microsoft.Win32;
 
 namespace DVLD_Classes
 {
@@ -13,32 +14,39 @@ namespace DVLD_Classes
     {
         public static clsUser CurrentUser = null;
 
-        public static string LoginInfoFilePath = "C:\\Users\\HP\\source\\repos\\DVDL-Driving License Management WindowsForm\\DVDL-Driving License Management WindowsForm\\Screens\\Login\\LogFile.txt";
+        public static string KeyPath = @"HKEY_CURRENT_USER\Software\DVLD_Configuration";
 
         public static void RememberUsernameAndPassword(string username, string password)
         {
 
             if (username == null || password == null)
             {
-                File.WriteAllText(LoginInfoFilePath, string.Empty);
+                Registry.SetValue(KeyPath, "Last_Password", null);
+                Registry.SetValue(KeyPath, "Last_Username", null);
                 return;
             }
 
-            File.WriteAllText(LoginInfoFilePath, username + "|" + password);
+            try
+            {
+                Registry.SetValue(KeyPath, "Last_Password", password);
+                Registry.SetValue(KeyPath, "Last_Username", username);
+            }
+            catch { }
         }
 
         public static bool RestoreUsernameAndPassword(ref string username,ref string password)
         {
 
-            if (!String.IsNullOrEmpty(File.ReadAllText(LoginInfoFilePath)))
+            try 
             {
-                string[] LoginInfo = File.ReadAllText(LoginInfoFilePath).Split('|');
-                username = LoginInfo[0];
-                password = LoginInfo[1];
+                password = Registry.GetValue(KeyPath, "Last_Password", null) as string;
+                username = Registry.GetValue(KeyPath, "Last_Username", null) as string;
                 return true;
             }
-            else
+            catch 
+            {
                 return false;
+            }
         }
     }
 }

@@ -79,6 +79,7 @@ namespace DVDL_Driving_License_Management_WindowsForm.User_Controls
                 // Raise the event with a parameter
                 OnPersonSelected(ctrPersonDetails2.PersonID);
         }
+
         private void btnAddPeson_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson form1 = new frmAddUpdatePerson();
