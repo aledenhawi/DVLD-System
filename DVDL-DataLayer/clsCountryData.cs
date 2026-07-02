@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -36,7 +37,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                //  Console.WriteLine(ex);
+                clsLoger.LogError("Countries Couldn't be Gettin From the Database ", ex);
             }
             finally
             {
@@ -73,7 +74,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Country Couldn't be Gettin From the Database ", ex);
             }
             finally
             {
@@ -110,7 +111,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Country Couldn't be Gettin From the Database ", ex);
             }
             finally
             {

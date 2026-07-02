@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,7 +35,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                //  Console.WriteLine(ex);
+                clsLoger.LogError("License Classes Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {
@@ -76,7 +77,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine(ex);
+                clsLoger.LogError("License Classe Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {
@@ -119,7 +120,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("License Classe Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {

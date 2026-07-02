@@ -1,4 +1,5 @@
 ﻿using DVDL_DataLayer;
+using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -41,7 +42,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Adding New Detain License Couldn't be Done Seccussfully ", ex);
                 }
             }
         }
@@ -78,7 +79,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Updating Detain License Couldn't be Done Seccussfully ", ex);
                 }
             }
         }
@@ -115,7 +116,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Releaseing Detained License Couldn't be Done Seccussfully ", ex);
                 }
             }
         }
@@ -178,7 +179,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Getting Detain License Couldn't be Done Seccussfully ", ex);
                 }
             }
         }
@@ -242,7 +243,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Getting Detain License Couldn't be Done Seccussfully ", ex);
                 }
             }
         }
@@ -278,6 +279,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
+                    clsLoger.LogError("Detain License Couldn't be Found in Database Seccussfully ", ex);
                     return false;
                 }
             }
@@ -306,7 +308,7 @@ public class clsDetainedLicenseData
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Detain Licenses Couldn't be Gettin Done Seccussfully ", ex);
                 }
             }
         }

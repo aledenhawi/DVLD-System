@@ -1,12 +1,13 @@
 ﻿using DVDL_BusinessLayer;
+using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using Microsoft.Win32;
 
 namespace DVLD_Classes
 {
@@ -31,7 +32,10 @@ namespace DVLD_Classes
                 Registry.SetValue(KeyPath, "Last_Password", password);
                 Registry.SetValue(KeyPath, "Last_Username", username);
             }
-            catch { }
+            catch (Exception ex) 
+            {
+                clsLoger.LogError("Registry error", ex);
+            }
         }
 
         public static bool RestoreUsernameAndPassword(ref string username,ref string password)
@@ -43,8 +47,9 @@ namespace DVLD_Classes
                 username = Registry.GetValue(KeyPath, "Last_Username", null) as string;
                 return true;
             }
-            catch 
+            catch (Exception ex)
             {
+                clsLoger.LogError("Restoring Username and Password Faild", ex);
                 return false;
             }
         }

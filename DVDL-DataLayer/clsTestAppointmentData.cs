@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -55,7 +56,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test Appointment couldn't be added seccessfully", ex);
             }
             finally
             {
@@ -98,6 +99,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
+                clsLoger.LogError("Test Appointment couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -142,6 +144,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
+                clsLoger.LogError("Last Test Appointment couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -194,7 +197,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test Appointment couldn't be updated seccessfully", ex);
             }
             finally
             {
@@ -228,7 +231,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Test Appointment couldn't be gettin seccessfully", ex);
                     }
                 }
             }
@@ -256,7 +259,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Test Appointments couldn't be gettin seccessfully", ex);
                     }
                 }
             }
@@ -290,7 +293,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("TestID couldn't be gettin seccessfully", ex);
             }
             finally
             {

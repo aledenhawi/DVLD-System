@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,7 +35,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Application Types Couldn't be Gettin From the Database ", ex);
             }
             finally
             {
@@ -70,7 +71,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Application Type Couldn't be Gettin From the Database ", ex);
             }
             finally
             {
@@ -107,7 +108,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Application Couldn't be Updated In the Database ", ex);
             }
             finally
             {
@@ -148,7 +149,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Application Couldn't be Added in the Database ", ex);
             }
             finally
             {

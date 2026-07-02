@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -52,7 +53,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test couldn't be added seccessfully", ex);
             }
             finally
             {
@@ -104,9 +105,9 @@ namespace DVDL_DataLayer
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                clsLoger.LogError("Test couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -153,7 +154,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test couldn't be updated seccessfully", ex);
             }
             finally
             {
@@ -194,7 +195,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Test couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -234,7 +235,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Passed test cound is not calculated", ex);
             }
             finally
             {
@@ -264,9 +265,9 @@ namespace DVDL_DataLayer
                     {
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Test couldn't be deleted seccessfully", ex);
                     }
                 }
             }
@@ -295,7 +296,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Tests couldn't be gettin seccessfully", ex);
                     }
                 }
             }
@@ -319,7 +320,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Test couldn't be checked if exists or not seccessfully", ex);
                         return false;
                     }
                 }

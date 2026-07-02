@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -43,7 +44,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Adding New Driver Couldn't be Done Seccussfully ", ex);
             }
             finally
             {
@@ -83,7 +84,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Driver Info Couldn't be Getting Seccussfully ", ex);
             }
             finally
             {
@@ -122,7 +123,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Driver Info Couldn't be Getting Seccussfully ", ex);
             }
             finally
             {
@@ -158,7 +159,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Updating Driver Couldn't be Done Seccussfully ", ex);
             }
             finally
             {
@@ -188,9 +189,9 @@ namespace DVDL_DataLayer
                     {
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Deleting Driver Couldn't be Done Seccussfully ", ex);
                     }
                 }
             }
@@ -218,7 +219,7 @@ namespace DVDL_DataLayer
                 }
                 catch (Exception ex)
                 {
-                    //  Console.WriteLine(ex.Message);
+                    clsLoger.LogError("Drivers Couldn't be Getting Seccussfully ", ex);
                 }
             }
             return DriversTable;
@@ -243,7 +244,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Driver Couldn't be Found in Database Seccussfully ", ex);
                         return false;
                     }
                 }
@@ -269,7 +270,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Driver Couldn't be Found in Database Seccussfully ", ex);
                         return false;
                     }
                 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -34,7 +35,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test types couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -71,7 +72,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Test type info couldn't be gettin seccessfully", ex);
             }
             finally
             {
@@ -112,7 +113,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test types couldn't be updated seccessfully", ex);
             }
             finally
             {
@@ -153,7 +154,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Test types couldn't be added seccessfully", ex);
             }
             finally
             {

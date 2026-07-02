@@ -1,4 +1,5 @@
 ﻿using DVDL_DataLayer;
+using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -69,7 +70,7 @@ namespace DVDL_DataAccessLayer
             }
             catch (Exception ex)
             {
-               
+                clsLoger.LogError("Person oculdn't be added to database ", ex);
             }
             finally
             {
@@ -119,7 +120,7 @@ namespace DVDL_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Person couldn't be gettin from database ", ex);
             }
             finally
             {
@@ -166,7 +167,7 @@ namespace DVDL_DataAccessLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Person couldn't be gettin from database ", ex);
             }
             finally
             {
@@ -237,8 +238,8 @@ namespace DVDL_DataAccessLayer
               }
               catch (Exception ex)
               {
-
-              }
+                clsLoger.LogError("Person couldn't be updated to database ", ex);
+            }
               finally
               {
                   Connection.Close();
@@ -267,9 +268,9 @@ namespace DVDL_DataAccessLayer
                     {
                     RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Person couldn't be deleted from database ", ex);
                     }
                 }
             }
@@ -297,7 +298,7 @@ namespace DVDL_DataAccessLayer
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Persons couldn't be gettin from database ", ex);
                 }
             }
             return PeopleTable;
@@ -320,7 +321,7 @@ namespace DVDL_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Error on person founding in database ", ex);
                         return false;
                     }
                 }
@@ -344,7 +345,7 @@ namespace DVDL_DataAccessLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Person couldn't be Found or not Found Seccussfully ", ex);
                         return false;
                     }
                 }

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
 
 namespace DVDL_Driving_License_Management_WindowsForm.Screens.Basic
 {
@@ -91,8 +92,10 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Basic
             {
                 mainForm.ShowDialog();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                clsLoger.LogError("Application Couldn't be Oppened secessfully .", ex);
+
                 MessageBox.Show("You Have to leave the app", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }

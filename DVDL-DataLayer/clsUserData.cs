@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -45,7 +46,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("User couldn't be added to database ", ex);
             }
             finally
             {
@@ -186,7 +187,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("User couldn't be updated in database ", ex);
             }
             finally
             {
@@ -216,9 +217,9 @@ namespace DVDL_DataLayer
                     {
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("User couldn't be deleted from database ", ex);
                     }
                 }
             }
@@ -251,9 +252,9 @@ namespace DVDL_DataLayer
                        
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Users couldn't be gettin from database ", ex);
                 }
                 finally 
                 {
@@ -281,7 +282,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("User couldn't be checked if exist in database ", ex);
                         return false;
                     }
                 }
@@ -304,7 +305,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("User couldn't be checked if exist in database ", ex);
                         return false;
                     }
                 }
@@ -331,7 +332,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("User couldn't be checked if exist in database ", ex);
                         return false;
                     }
                 }
@@ -366,7 +367,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Couldn't change password in database", ex);
             }
             finally
             {

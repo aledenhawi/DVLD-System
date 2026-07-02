@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -49,7 +50,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Application Couldn't be Added to the Database ", ex);
             }
             finally
             {
@@ -93,7 +94,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Application Couldn't be get from the database ",ex);
             }
             finally
             {
@@ -141,7 +142,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Application Couldn't be Update in the database ", ex);
             }
             finally
             {
@@ -171,9 +172,9 @@ namespace DVDL_DataLayer
                         connection.Open();
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex )
                     {
-
+                        clsLoger.LogError("Application Couldn't be Deleted From the Database ", ex);
                     }
                 }
             }
@@ -201,9 +202,9 @@ namespace DVDL_DataLayer
                         connection.Open();
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Application Status Couldn't be updated in Database ", ex);
                     }
                 }
             }
@@ -232,7 +233,7 @@ namespace DVDL_DataLayer
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Applications Couldn't be get From the Database ", ex);
                 }
             }
             return ApplicationsTable;
@@ -265,6 +266,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
+                        clsLoger.LogError( "Finding the application didn't go well", ex);
                         return false;
                     }
                 }
@@ -301,7 +303,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Active Application Couldn't be Get From the Database ", ex);
             }
             finally
             {
@@ -343,7 +345,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Active ApplicationID Couldn't be Deleted From the Database ", ex);
                     }
                 }
             }

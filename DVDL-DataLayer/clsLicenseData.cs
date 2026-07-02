@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +53,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("License Info Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {
@@ -93,7 +94,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex.Message);
+                        clsLoger.LogError("Driver Licenses Info Couldn't be Gettin Seccussfully ", ex);
                     }
                 }
             }
@@ -123,7 +124,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex.Message);
+                        clsLoger.LogError("Licenses Info Couldn't be Gettin Seccussfully ", ex);
                     }
                 }
             }
@@ -175,7 +176,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("License Info Couldn't be Added Seccussfully ", ex);
             }
             finally
             {
@@ -236,7 +237,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("License Info Couldn't be Updated Seccussfully ", ex);
             }
             finally
             {
@@ -270,7 +271,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Active LicenseID Couldn't be Gettin Seccussfully ", ex);
                     }
                     return LicenseID;
                 }
@@ -294,7 +295,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("License Couldn't be Deactivated Seccussfully ", ex);
                         return false;
                     }
                 }

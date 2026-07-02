@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -45,7 +46,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("International License Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {
@@ -85,7 +86,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex.Message);
+                        clsLoger.LogError("International License Couldn't be Getting Seccussfully ", ex);
                     }
                 }
             }
@@ -121,9 +122,9 @@ namespace DVDL_DataLayer
                             DriversLicensesTable.Load(reader);
                         }
                     }
-                    catch (Exception )
+                    catch (Exception ex)
                     {
-                        // Console.WriteLine(ex.Message);
+                        clsLoger.LogError("International Licenses Couldn't be Getting Seccussfully ", ex);
                     }
                 }
             }
@@ -173,9 +174,9 @@ namespace DVDL_DataLayer
                     InternationalLicenseID = InsertedID;
                 }
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-
+                clsLoger.LogError("International License Couldn't be Added Seccussfully ", ex);
             }
             finally
             {
@@ -220,9 +221,9 @@ namespace DVDL_DataLayer
 
                 RowsAffected = command.ExecuteNonQuery();
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-
+                clsLoger.LogError("International License Couldn't be Updated Seccussfully ", ex);
             }
             finally
             {
@@ -252,9 +253,9 @@ namespace DVDL_DataLayer
                         if (Result != null && int.TryParse(Result.ToString(), out int InsertedID))
                             InternationalLicenseID = InsertedID;
                     }
-                    catch (Exception )
+                    catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Active International LicenseID Couldn't be gettin Seccussfully ", ex);
                     }
                     return InternationalLicenseID;
                 }

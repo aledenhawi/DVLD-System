@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVDL_Driving_License_Management_WindowsForm.Global_Classes;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -43,7 +44,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Local Driving License Application Couldn't be Added Seccussfully ", ex);
             }
             finally
             {
@@ -79,7 +80,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Local Driving License Application Info Couldn't be Gettin Seccussfully ", ex);
             }
             finally
             {
@@ -114,7 +115,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                clsLoger.LogError("Local Driving License Application Info Couldn't be gettin Seccussfully ", ex);
             }
             finally
             {
@@ -149,7 +150,7 @@ namespace DVDL_DataLayer
             }
             catch (Exception ex)
             {
-
+                clsLoger.LogError("Updating Local Driving License Application Couldn't be Done Seccussfully ", ex);
             }
             finally
             {
@@ -179,9 +180,9 @@ namespace DVDL_DataLayer
                     {
                         RowsAffected = cmd.ExecuteNonQuery();
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-
+                        clsLoger.LogError("Local Driving License Application Couldn't be Deleted Seccussfully ", ex);
                     }
                 }
             }
@@ -210,7 +211,7 @@ namespace DVDL_DataLayer
                 }
                 catch (Exception ex)
                 {
-
+                    clsLoger.LogError("Local Driving License Applications Couldn't be Gettin Seccussfully ", ex);
                 }
             }
             return LocalDrivingLicenseApplicationsTable;
@@ -233,7 +234,7 @@ namespace DVDL_DataLayer
                     }
                     catch (Exception ex)
                     {
-                        // Console.WriteLine(ex);
+                        clsLoger.LogError("Local Driving License Application Couldn't be Found in Database Seccussfully ", ex);
                         return false;
                     }
                 }
@@ -268,8 +269,9 @@ namespace DVDL_DataLayer
                             IsPassed = Convert.ToBoolean(Result);
                         return IsPassed;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        clsLoger.LogError("Checking Pass Test Type is not Done Seccessfully ", ex);
                         return false;
                     }
                 }
@@ -301,8 +303,9 @@ namespace DVDL_DataLayer
                         Attended = (Result != null);
                         return Attended;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        clsLoger.LogError("Does attend the test did not checked seccessfully", ex);
                         return false;
                     }
                 }
@@ -334,8 +337,9 @@ namespace DVDL_DataLayer
 
                         return TotalTrialsPerTest;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        clsLoger.LogError("Total Trials Per Test is not Getting Seccessfully", ex);
                         return TotalTrialsPerTest;
                     }
                 }
@@ -364,8 +368,9 @@ namespace DVDL_DataLayer
                             IsThereAnActiveScheduledTest = Convert.ToBoolean(Result);
                         return IsThereAnActiveScheduledTest;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        clsLoger.LogError("Active Scheduled Test Couldn't be Found in Database ", ex);
                         return IsThereAnActiveScheduledTest;
                     }
                 }
