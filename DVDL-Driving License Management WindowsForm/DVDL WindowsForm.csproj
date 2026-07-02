@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global Classes\clsGlobal.cs" />
+    <Compile Include="Global Classes\clsLoger.cs" />
     <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Screens\Applications\ApplicationsType\frmApplicationTypesManagment.cs">
       <SubType>Form</SubType>
