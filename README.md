@@ -11,6 +11,7 @@ This system handles everything from managing personal records and scheduling dri
 * **License Applications Workflow:** Full lifecycle tracking for Local and International Driving Licenses (including scheduling Vision, Written, and Street tests).
 * **License History Tracking:** Detailed visual history of all active, expired, and revoked licenses associated with a specific person.
 * **Detained Licenses Module:** Manage detained licenses, calculate fines, process payments, and release licenses.
+* **Loging errors :** Logging every error happin in try catch to event log using reflection to show all details.
 
 ## 🛠️ Skills & Technologies Used
 * **Programming Language:** C#
