@@ -13,6 +13,7 @@ namespace DVLD_Classes
 {
     public class clsGlobal
     {
+        
         public static clsUser CurrentUser = null;
 
         public static string KeyPath = @"HKEY_CURRENT_USER\Software\DVLD_Configuration";

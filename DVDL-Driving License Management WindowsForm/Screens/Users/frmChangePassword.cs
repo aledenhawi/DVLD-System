@@ -76,11 +76,6 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
                 IsValid = false;
                 errorProvider1.SetError(txbCurrentPassword, "This Faild Cann't be null!");
             }
-            else if (txbCurrentPassword.Text.Trim() != _User.Password)
-            {
-                IsValid = false;
-                errorProvider1.SetError(txbCurrentPassword, "Make sure if the current password is correct!");
-            }
             else
             {
                 IsValid = true;

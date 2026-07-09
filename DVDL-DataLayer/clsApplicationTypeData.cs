@@ -19,7 +19,7 @@ namespace DVDL_DataLayer
             string Query = "SELECT * FROM ApplicationTypes;";
             SqlDataReader Reader = null;
             SqlCommand command = new SqlCommand(Query, Connection);
-
+            
             try
             {
                 Connection.Open();

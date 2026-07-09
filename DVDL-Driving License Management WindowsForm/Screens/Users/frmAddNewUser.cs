@@ -82,8 +82,6 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Users
             }
 
             lblUserID.Text = _User.ID.ToString();
-            txbConfirmPasswrod.Text = _User.Password;
-            txbPassword.Text = _User.Password;
             txbUsername.Text = _User.Username;
             cbIsActive.Checked = _User.IsActive;
             ctrPersonDetailsWithFilter1.LoadPersonInfo(_User.PersonInfo.ID);

@@ -2,4 +2,5 @@
   <Project Path="DVDL-BusinessLayer/DVLD-BusinessLayer.csproj" Id="4e5e7df6-a502-4b61-8a43-9fa1445d8b5d" />
   <Project Path="DVDL-DataLayer/DVLD-DataAccessLayer.csproj" Id="e7776968-ac95-4674-89ed-00ca4a4ea249" />
   <Project Path="DVDL-Driving License Management WindowsForm/DVDL WindowsForm.csproj" Id="0d9947f5-f0b3-41f4-84da-6e0f6104399a" />
+  <Project Path="Global_Classes/Global_Classes.csproj" Id="53f0a82e-3d8a-416f-b3f8-c47285b2bb89" />
 </Solution>

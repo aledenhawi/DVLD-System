@@ -1,5 +1,6 @@
 ﻿using DVDL_DataAccessLayer;
 using DVDL_DataLayer;
+using DVLD_Classes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -23,7 +24,8 @@ namespace DVDL_BusinessLayer
 
         public string Username { get; set; }
 
-        public string Password { get; set; }
+        private string _Password;
+        public string Password { get { return _Password; } set { _Password = clsUtil.ComputeHash(value); }}
 
         public bool IsActive { get; set; }
         
@@ -40,7 +42,7 @@ namespace DVDL_BusinessLayer
         private clsUser(int ID, int PersonID , string Username , string Password,bool IsActive) 
         {
             this.ID = ID;
-            this.Password = Password;
+            _Password = Password;
             this.Username = Username;
             this.PersonID = PersonID;
             this.PersonInfo = clsPerson.Find(PersonID);
@@ -50,7 +52,7 @@ namespace DVDL_BusinessLayer
 
         private bool _AddNewUser()
         {
-            this.ID = clsUserData.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
+            this.ID = clsUserData.AddNewUser(this.PersonID, this.Username,this.Password, this.IsActive);
 
 
             return (this.ID != -1);
@@ -155,7 +157,7 @@ namespace DVDL_BusinessLayer
 
         public bool ChangePassword(string NewPassword)
         {
-            return clsUserData.ChangePassword(this.ID, NewPassword);
+            return clsUserData.ChangePassword(this.ID,clsUtil.ComputeHash(NewPassword));
         }
     }
 }

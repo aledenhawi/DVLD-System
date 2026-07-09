@@ -62,6 +62,10 @@
       <Project>{e7776968-ac95-4674-89ed-00ca4a4ea249}</Project>
       <Name>DVLD-DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Global_Classes\Global_Classes.csproj">
+      <Project>{53f0a82e-3d8a-416f-b3f8-c47285b2bb89}</Project>
+      <Name>Global_Classes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

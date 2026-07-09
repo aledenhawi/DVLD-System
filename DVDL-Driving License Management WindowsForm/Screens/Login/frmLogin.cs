@@ -59,16 +59,21 @@ namespace DVDL_Driving_License_Management_WindowsForm.Screens.Basic
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            clsUser User = clsUser.Find(txbUsername.Text.Trim(),txbPassword.Text.Trim());
+            clsUser User = clsUser.Find(txbUsername.Text.Trim());
 
             if (User != null)
             {
-                if (txbPassword.Text.Trim() == User.Password)
+                if (clsUtil.ComputeHash(txbPassword.Text.Trim()) == User.Password)
                 {
                     if (User.IsActive == true)
                         clsGlobal.CurrentUser = User;
                     else
                         MessageBox.Show("User Is not Active .", "Not Active", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else 
+                {
+                    MessageBox.Show("Invalid Password/Username .", "Wrong Credintial", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
             else

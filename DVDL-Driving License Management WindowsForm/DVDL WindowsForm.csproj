@@ -52,8 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global Classes\clsGlobal.cs" />
-    <Compile Include="Global Classes\clsLoger.cs" />
-    <Compile Include="Global Classes\clsUtil.cs" />
     <Compile Include="Screens\Applications\ApplicationsType\frmApplicationTypesManagment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -485,6 +483,10 @@
     <ProjectReference Include="..\DVDL-BusinessLayer\DVLD-BusinessLayer.csproj">
       <Project>{4e5e7df6-a502-4b61-8a43-9fa1445d8b5d}</Project>
       <Name>DVLD-BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Global_Classes\Global_Classes.csproj">
+      <Project>{53f0a82e-3d8a-416f-b3f8-c47285b2bb89}</Project>
+      <Name>Global_Classes</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
